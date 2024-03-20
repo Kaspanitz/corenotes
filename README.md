@@ -4,3 +4,4 @@
 - [Virtual Network](vnet.md)
 - [Azure Virtual Desktop](avd.md)
 - [Azure Monitor](monitor.md)
+- [Azure Business Continuity](https://github.com/Kaspanitz/bcdrdemo)
