@@ -1,1 +1,1 @@
-# corenotes
+- [Migrate](\migrate.md)
