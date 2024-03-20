@@ -1,3 +1,4 @@
 - [Migrate](migrate.md)
 - [Azure Firewall](firewall.md)
 - [Azure Bastion](bastion.md)
+- [Virtual Network](vnet.md)
