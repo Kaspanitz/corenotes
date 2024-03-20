@@ -63,8 +63,9 @@
 [![basic](https://learn.microsoft.com/en-us/azure/firewall/media/overview/firewall-basic-diagram.png)](https://learn.microsoft.com/en-us/azure/firewall/media/overview/firewall-basic-diagram.png)
 
 # Deploy
-- [Backup Azure Firewall with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928)
 - [Azure Firewall + Hybrid Network](https://learn.microsoft.com/en-us/azure/firewall/tutorial-hybrid-portal-policy)
+- [Azure Firewall + Application Gateway (5 scenarios)](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+  - [Zero Trust](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
 - [Azure Firewall + NAT Gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/tutorial-hub-spoke-nat-firewall?toc=%2Fazure%2Ffirewall%2Ftoc.json)
   - Increase SNAT ports = more scalable method of outbound connectivity
   - Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses.
@@ -74,7 +75,6 @@
       - Deploy a NAT gateway to the Azure Firewall subnet: This will route all outbound traffic through the NAT gateway and use its public IP address1. Here is an overview of NAT gateway.
 Please note that these are just workarounds and may not perfectly fit your requirements. The feature to specify a particular public IP for outbound connectivity on Azure Firewall is on the roadmap but there’s no ETA yet. You can upvote the feature in the [feedback forum](https://feedback.azure.com/d365community/idea/59931e39-8426-ec11-b6e6-000d3a4f0789)
   - [![NAT](https://learn.microsoft.com/en-us/azure/nat-gateway/media/tutorial-hub-spoke-nat-firewall/resources-diagram.png#lightbox)](https://learn.microsoft.com/en-us/azure/nat-gateway/media/tutorial-hub-spoke-nat-firewall/resources-diagram.png#lightbox)
-- [Deploy and configure Azure Firewall and policy](https://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal-policy)
 - [Azure Firewall + DDoS protected VNET](https://learn.microsoft.com/en-us/azure/firewall/tutorial-protect-firewall-ddos)
   - [DDoS Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/)
   - [DDoS IP Protection vs. DDoS Network Protection](https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-sku-comparison)
@@ -84,6 +84,8 @@ Please note that these are just workarounds and may not perfectly fit your requi
 - [Azure Firewall + Load Balancer (internal or public)](https://learn.microsoft.com/en-us/azure/firewall/integrate-lb)
   - Benefit: Traffic Distribution. The Azure Load Balancer can optimally distribute traffic to services across global Azure regions1. This can help ensure efficient use of resources and improve application responsiveness.
   - [Public LB has assymetric routing considerations](https://learn.microsoft.com/en-us/azure/firewall/integrate-lb#fix-the-routing-issue)
+- [Deploy and configure Azure Firewall and policy](https://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal-policy)
+- [Backup Azure Firewall with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928)
 ## IP Addresses
 - [Table showing Azure Firewall only supports static IPv4](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#at-a-glance)
 - [IP SKU](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#sku)
