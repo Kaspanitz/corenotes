@@ -1,1 +1,1 @@
-- [Migrate](\migrate.md)
+- [Migrate](migrate.md)
