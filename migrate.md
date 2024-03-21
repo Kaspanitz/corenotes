@@ -12,6 +12,7 @@ Last updated: March 2024
 - [Movere](https://www.movere.io/) is deprecated as of 1 March 2024
 - [The MEG](aks.ms/migrate)
 - Once you confirm the target region for migration in the Azure Migrate project, it cannot be changed for the project.
+- [Windows machines](https://learn.microsoft.com/en-us/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) will have their IP configuration automatically changed to DHCP, [Linux needs to be done manually](https://learn.microsoft.com/en-us/azure/migrate/prepare-for-migration#prepare-to-connect-to-azure-windows-vms).
 ## Compare agentless versus agent-based migration
 - Lightweight agent on each machine you want to replicate for migration. 
 - Agent coordinates replication data from each machine and prepares it to send to Azure. 
