@@ -29,6 +29,10 @@ Defender for SQL on machines will require AMA and can be seamlessly migrated thr
 
 ## 6. [Management](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management)
 
+### Monitor
+- Azure Monitor Workspace vs. Log Analytics Workspace
+  - [Log Analytics workspaces contain logs and metrics data from multiple Azure resources, whereas Azure Monitor workspaces currently contain only metrics related to Prometheus](https://learn.microsoft.com/en-Us/azure/azure-monitor/essentials/azure-monitor-workspace-overview)
+
 ### Storage
 - [Public Preview: Azure Storage Actions – Streamline management of storage objects - 20 Feb 2024](https://microsoft.seismic.com/app?ContentId=ea9923b6-05ca-4efd-ab9a-b59c6a0963af#/doccenter/a5266a70-9230-4c1e-a553-c5bddcb7a896/doc/%252Fdde0caec0e-9236-f21b-2991-5868e63d3984%252FdfYTZjNDRiZDMtMzEwZS1kNWZkLTNjOGEtNjliYWJjMjhmMmUw%252CPT0%253D%252CUHJldmlldw%253D%253D%252Flf6905c880-7e7b-4627-8f89-0bd0d83cb71a/grid/?anchorId=78ee1704-9bf5-4767-8218-25b82752055b)
   - Automate data protection, tagging, and cost optimization operations for billions of objects in Azure storage accounts with an interactive no-code experience, without provisioning or managing any infrastructure.
