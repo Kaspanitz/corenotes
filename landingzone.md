@@ -40,6 +40,8 @@ Defender for SQL on machines will require AMA and can be seamlessly migrated thr
 - [Azure Policy built-in policy definitions](https://learn.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies)
 - [Enterprise Azure Policy as Code (EPAC)](https://azure.github.io/enterprise-azure-policy-as-code/)
 
+### Cost Management
+- [Azure Reservation auto-renew opt-in](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/reservation-renew)
 
 ## 8. [Platform automation and DevOps](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops)
 
