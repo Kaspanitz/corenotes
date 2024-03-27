@@ -89,6 +89,11 @@ Last Update: March 2024
 ## Resilience
 - [AVD Service Architecture and Resilience](https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience)
 - [AVD DR](https://learn.microsoft.com/en-us/azure/virtual-desktop/disaster-recovery)
+- [AVD DR Scenarios](https://learn.microsoft.com/en-us/training/modules/business-continuity-disaster-recovery-azure-virtual-desktop/4-identify-correct-dr-scenario)
+  - Scenario 1: Local corruption of data, metadata, or resources
+  - Scenario 2: Single datacenter of availability zone failure within an Azure region
+    - Consider adding sufficient session capacity when deploying session hosts across mulltiple Availability Zones
+  - Scenario 3: Azure region outage
 ### [Multi-Region BCDR Example](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
 #### Personal (Persistent) Host Pool
 [![personalhost](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/images/azure-virtual-desktop-bcdr-personal-host-pool.png#lightbox)](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/images/azure-virtual-desktop-bcdr-personal-host-pool.png#lightbox)
