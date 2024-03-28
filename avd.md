@@ -62,6 +62,10 @@ Last Update: March 2024
   - Logical grouping of application groups in Azure Virtual Desktop
 ### [Identity](https://learn.microsoft.com/en-us/azure/virtual-desktop/authentication)
 - [Supported identity scenarios](https://learn.microsoft.com/en-us/azure/virtual-desktop/prerequisites?tabs=portal#supported-identity-scenarios)
+  - Entra ID is mandatory across all scenarios
+  - Single Entra ID Tenant only
+  - Doesn't support B2B, B2C, or personal Microsoft accounts
+  - When using hybrid identities, either the UPN or the SID must match across AD DS and Microsoft Entra ID
 - On-premises identity: User identities that exist only in Active Directory Domain Services (AD DS) aren’t supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 - Hybrid identity: AVD supports hybrid identities through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using Microsoft Entra Connect.
 - Cloud-only identity: AVD supports cloud-only identities when using Microsoft Entra joined VMs. These users are created and managed directly in Microsoft Entra ID.
