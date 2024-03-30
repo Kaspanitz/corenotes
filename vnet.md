@@ -14,6 +14,6 @@
 - Ingress Free
 - [Egress $](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)
 
-# [VNET Encryption](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview)
+# [Encryption](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview)
 - Traffic to unsupported VMs is unencrypted. Use VNET Flow Logs to confirm flow encryption between VMs
 - [Enable encryption](https://learn.microsoft.com/en-us/azure/virtual-network/how-to-create-encryption-portal#enable-encryption)
