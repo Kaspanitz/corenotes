@@ -132,7 +132,7 @@ Last updated: March 2024
 ## [Choose a migration strategy](https://learn.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview?view=azuresql#migrate)
   - [Lift and shift](https://learn.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview?view=azuresql#lift-and-shift)
     Note: It's now possible to lift and shift both your failover cluster instance and availability group solution to SQL Server on Azure VMs using Azure Migrate.
-  - Azure SQL migration extension for Azure Data Studio
+  - [Azure SQL migration extension for Azure Data Studio](https://learn.microsoft.com/en-us/azure/dms/migration-using-azure-data-studio?tabs=azure-sql-mi)
   - Distributed availability group
   - Backup to a file
   - Backup to URL
