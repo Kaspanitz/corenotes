@@ -38,6 +38,11 @@ Defender for SQL on machines will require AMA and can be seamlessly migrated thr
   - Automate data protection, tagging, and cost optimization operations for billions of objects in Azure storage accounts with an interactive no-code experience, without provisioning or managing any infrastructure.
   - [Azure Storage Actions](https://learn.microsoft.com/en-us/azure/storage-actions/storage-tasks/)
 
+### Update Management
+- [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/)
+- [Move from Automation Update Management to Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?tabs=update-mgmt#azure-portal-experience-preview)
+  - Portal experience in preview
+
 ## 7. [Governance](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance)
 
 ### Policies
