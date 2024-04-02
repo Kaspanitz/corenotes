@@ -18,3 +18,14 @@
 - Azure VNET encryption is not enabled by default
 - Traffic to unsupported VMs is unencrypted. Use VNET Flow Logs to confirm flow encryption between VMs
 - [Enable encryption](https://learn.microsoft.com/en-us/azure/virtual-network/how-to-create-encryption-portal#enable-encryption)
+
+# Secure network access to PaaS services
+## Service Endpoint
+- Adding service endpoints doesn't remove the public endpoint. It simply provides a redirection of traffic.
+- To enable a service endpoint, you must:
+  - Turn off public access to the service.
+  - Add the service endpoint to a virtual network.
+[![service endpoint](https://learn.microsoft.com/en-us/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/media/4-service-endpoint.svg)](https://learn.microsoft.com/en-us/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/media/4-service-endpoint.svg)
+- Service resources that you've secured by using virtual network service endpoints are not, by default, accessible from on-premises networks. To access resources from an on-premises network, use NAT IPs. If you use ExpressRoute for connectivity from on-premises to Azure, you have to identify the NAT IP addresses ExpressRoute uses. By default, each circuit uses two NAT IP addresses to connect to the Azure backbone network. You then need to add these IP addresses into the Azure service resource's IP firewall configuration (for example, Azure Storage).
+- The following diagram shows how you can use a service endpoint and firewall configuration to enable on-premises devices to access Azure Storage resources:
+[![servce endpoints and hybrid](https://learn.microsoft.com/en-us/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/media/4-service-endpoint-flow.svg)](https://learn.microsoft.com/en-us/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/media/4-service-endpoint-flow.svg)
