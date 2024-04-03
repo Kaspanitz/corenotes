@@ -10,6 +10,22 @@ Last Updated: March 2024
 ## 1. [Billing and Microsoft Entra Tenant](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant)
 
 ## 2. [Identity and access management](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)
+- [Glossary of updated terminology](https://learn.microsoft.com/en-us/entra/fundamentals/new-name#glossary-of-updated-terminology):
+  - Azure Active Directory Free =	Microsoft Entra ID Free
+  - Azure Active Directory Premium P1	= Microsoft Entra ID P1
+  - Azure Active Directory Premium P2	= Microsoft Entra ID P2
+  - Azure Active Directory for education = Microsoft Entra ID for education
+  - Azure Active Directory Premium P1	= Microsoft Entra ID P1
+  - Azure Active Directory Premium P1 for students = Microsoft Entra ID P1 for students
+  - Azure Active Directory Premium P1 for faculty =	Microsoft Entra ID P1 for faculty
+  - Azure Active Directory Premium P1 for government = Microsoft Entra ID P1 for government
+  - Azure Active Directory Premium P2	= Microsoft Entra ID P2
+  - Azure Active Directory Premium P2 for students = Microsoft Entra ID P2 for students
+  - Azure Active Directory Premium P2 for faculty = Microsoft Entra ID P2 for faculty
+  - Azure Active Directory Premium P2 for government = Microsoft Entra ID P2 for government
+  - Azure Active Directory F2 =	Microsoft Entra ID F2
+  - Azure AD tenant = Microsoft Entra tenant
+  - Azure AD account = Microsoft Entra account
 
 ## 3. [Resource Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)
 
