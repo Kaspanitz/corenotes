@@ -160,7 +160,7 @@ Last Update: March 2024
   - Cameras
 ## Automated Scaling
 - [Scaling, Imaging and Monitoring Video](https://www.youtube.com/watch?v=L9j_pSBVGy4&list=PLXtHYVsvn_b-bLI3NQ5X1tcPC6HCNBkpx&index=4)
-- Scaling for pooled, and personal host pools now
+- Scaling for pooled, and [personal host pools](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/personal-desktop-autoscale-on-azure-virtual-desktop-generally/ba-p/3993783) now
 - Schedule:
   - Day(s) to repeat
   - Ramp-up (start time, lb algorithm, min % hosts, capacity threshold % i.e. percentage of available host pool capacity that will trigger a scaling action. This is based on max session limit as defined on host pool)
