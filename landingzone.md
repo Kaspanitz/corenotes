@@ -26,7 +26,16 @@ Last Updated: March 2024
   - Azure Active Directory F2 =	Microsoft Entra ID F2
   - Azure AD tenant = Microsoft Entra tenant
   - Azure AD account = Microsoft Entra account
-
+- User Types:
+  - Cloud Identity
+  - Directory-synchronized Identities
+    - Azure AD Connect (now Microsoft Entra Connect Sync)
+    - [Azure AD Cloud Sync (now Microsoft Entra Cloud Sync)](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
+      - Provisioning from AD to Microsoft Entra ID is orchestrated in Microsoft Online Services.
+      - Organization only needs to deploy, in on-premises or IaaS-hosted environment, a light-weight agent (acts as a bridge between Microsoft Entra ID and AD)
+      - Provisioning configuration is stored in Microsoft Entra ID and managed as part of the service.
+      - [Comparison with Microsoft Entra Connect Sync](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync#comparison-between-microsoft-entra-connect-and-cloud-sync)
+  - Guest Users (Invited via known email, needs to create an associated Microsoft account (MSA) if their email address isn't associated with one)
 ## 3. [Resource Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)
 
 ## 4. [Network topology and connectivity](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity)
