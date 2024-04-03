@@ -6,7 +6,6 @@ Last Updated: March 2024
 
 # [Design Areas](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas)
 
-
 ## 1. [Billing and Microsoft Entra Tenant](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant)
 
 ## 2. [Identity and access management](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)
@@ -29,13 +28,28 @@ Last Updated: March 2024
 - User Types:
   - Cloud Identity
   - Directory-synchronized Identities
-    - Azure AD Connect (now Microsoft Entra Connect Sync)
+    - [Azure AD Connect Sync (now Microsoft Entra Connect Sync)](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect-v2)
     - [Azure AD Cloud Sync (now Microsoft Entra Cloud Sync)](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
       - Provisioning from AD to Microsoft Entra ID is orchestrated in Microsoft Online Services.
       - Organization only needs to deploy, in on-premises or IaaS-hosted environment, a light-weight agent (acts as a bridge between Microsoft Entra ID and AD)
       - Provisioning configuration is stored in Microsoft Entra ID and managed as part of the service.
       - [Comparison with Microsoft Entra Connect Sync](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync#comparison-between-microsoft-entra-connect-and-cloud-sync)
   - Guest Users (Invited via known email, needs to create an associated Microsoft account (MSA) if their email address isn't associated with one)
+- Bulk Management
+  -  Add users to Microsoft Entra ID programmatically using (if you're sharing the same directory):
+    -  Microsoft Graph API
+    -  Microsoft 365 Admin Center
+    -  Microsoft Intune Admin console
+    -  New-MgUser PowerShell command 
+- Groups:
+  - Static
+  - Dynamic
+  - No nested groups
+- RBAC
+  - Built-in roles e.g. Owner, Contributor and Reader
+  - Role definitions in Json = Properties + Permissions (Actions/NotActions and DataActions/NotDataActions) + Scope
+  - Custom Roles
+
 ## 3. [Resource Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)
 
 ## 4. [Network topology and connectivity](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity)
