@@ -53,6 +53,7 @@ Last Update: March 2024
     -  [Manage multi-session W10/11 hosts with Intune](https://learn.microsoft.com/en-us/mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json)
     - User Data: Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](https://learn.microsoft.com/en-us/fslogix/configure-profile-container-tutorial)
   - Can set host pool to be [Validation Environment](https://learn.microsoft.com/en-us/azure/virtual-desktop/configure-validation-environment) to monitor service updates before the service applies them to production or non-validation environment
+    - Service updates (monthly, but can be more frequent if critical) are applied to validation environments first. Microsoft keeps an eye on this before applying updates to production environments. Ensure that a few users sign on to the validation environment to test.
 ### Application Groups
 - [Application Group](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop#create-an-application-group)
   - Logical grouping of applications installed on session hosts in the host pool
