@@ -54,6 +54,10 @@ Last Updated: March 2024
 
 ## 4. [Network topology and connectivity](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity)
 
+### VNET
+-  A NAT gateway is the recommended way to provide outbound connectivity for VMs in the subnet.
+  -  Subnet creation now offers the ability to disable default outbound access (by selecting to create a 'private subnet') Note: This setting can't be changed after the subnet is created.
+
 ## 5. [Security](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/security)
 
 ### Defender for Cloud
