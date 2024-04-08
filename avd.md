@@ -79,7 +79,7 @@ Last Update: March 2024
 - Cloud-only identity: AVD supports cloud-only identities when using Microsoft Entra joined VMs. These users are created and managed directly in Microsoft Entra ID.
 - [Session Host Authentication](https://learn.microsoft.com/en-us/azure/virtual-desktop/authentication#session-host-authentication)
 - [Microsoft Entra joined session hosts in AVD](https://learn.microsoft.com/en-us/azure/virtual-desktop/azure-ad-joined-session-hosts#connect-using-the-other-clients). Limitations include:
-  - AVDp (classic) doesn't support Microsoft Entra joined VMs.
+  - AVD (classic) doesn't support Microsoft Entra joined VMs.
   - Microsoft Entra joined VMs don't currently support external identities, such as Microsoft Entra B2B and Microsoft Entra B2C.
   - Microsoft Entra joined VMs can only access Azure Files shares or Azure NetApp Files shares for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
   - The Remote Desktop app for Windows doesn't support Microsoft Entra joined VMs.
