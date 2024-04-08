@@ -9,6 +9,13 @@ Last Update: March 2024
 - Automatically increase or decrease capacity based on time of day, specific days of the week, or as demand changes with autoscale, helping to manage cost
 - Only manage the image and virtual machines, not the infrastructure
 - [Licenses](https://learn.microsoft.com/en-us/azure/virtual-desktop/prerequisites?tabs=portal#operating-systems-and-licenses)
+  - [Apply Windows license to session host VMs](https://learn.microsoft.com/en-us/azure/virtual-desktop/apply-windows-license)
+  - Automatic license if you create a host pool and its session host VMs in the Azure portal
+  - Automatic license if you create a host pool and its session host VMs using the GitHub Azure Resource Manager template
+  - Can manually apply a license to an existing session host VM via [PowerShell](https://learn.microsoft.com/en-us/azure/virtual-desktop/apply-windows-license#manually-apply-a-windows-license-to-a-windows-client-session-host-vm)
+  - [PowerShell to verify that session host VM is utilizing the licensing benefit](https://learn.microsoft.com/en-us/azure/virtual-desktop/apply-windows-license#verify-your-session-host-vm-is-utilizing-the-licensing-benefit)
+    - Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
+    - LicenseType : Windows_Client
 - [AVD Tour Video](https://www.youtube.com/watch?v=aPEibGMvxZw)
 - [Intro Video](https://www.youtube.com/watch?v=b5dJllgc-ew&t=20s)
 - Other Azure virtual desktop solutions:
