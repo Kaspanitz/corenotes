@@ -85,6 +85,8 @@ Defender for SQL on machines will require AMA and can be seamlessly migrated thr
 - [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/)
 - [Move from Automation Update Management to Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?tabs=update-mgmt#azure-portal-experience-preview)
   - Portal experience in preview
+  - Available at no extra charge for managing Azure VMs and Arc-enabled Azure Stack HCI VMs (for which Azure Benefits are enabled)
+  - For Arc-enabled Servers, the price is USD 5 per server per month (assuming 31 days of usage)
 
 ## 7. [Governance](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance)
 
