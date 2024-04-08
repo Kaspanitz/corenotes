@@ -253,3 +253,4 @@ Last Update: March 2024
   - On top of Trusted Launch, Confidential VMs offers higher confidentiality and integrity guaranteed with hardware-based trusted execution environment.
 - [Zero Trust Architecture](https://learn.microsoft.com/en-us/security/zero-trust/azure-infrastructure-avd?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext)
 [![ZT](https://learn.microsoft.com/en-us/security/zero-trust/media/avd/ref-arch-avd.svg)](https://learn.microsoft.com/en-us/security/zero-trust/media/avd/ref-arch-avd.svg)
+  - [Azure Firewall can lock down environment and filter **outbound traffic**](https://learn.microsoft.com/en-us/azure/firewall/protect-azure-virtual-desktop?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext&tabs=azure)
