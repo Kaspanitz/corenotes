@@ -88,6 +88,7 @@ Last Update: March 2024
   - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad)
   - [Set up FSLogix Profile Container with Azure NetApp Files](https://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container)
   - [FSLogix profile containers for Azure AD cloud only identities](https://techcommunity.microsoft.com/t5/fslogix-blog/fslogix-profile-containers-for-azure-ad-cloud-only-identities/ba-p/3739352)
+  - [Azure Academy: FSLogix with cloud-only identities](https://www.youtube.com/watch?v=1msGQEZ_SkU)
 #### [Multiple forests with AD DS and Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/multi-forest)
 [![1](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/images/azure-virtual-desktop-multi-forest-adds.png#lightbox)](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/images/azure-virtual-desktop-multi-forest-adds.png#lightbox)
 #### [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
