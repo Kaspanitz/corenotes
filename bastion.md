@@ -4,7 +4,7 @@
   - Global virtual network peering: Connecting virtual networks across Azure regions.
 - Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
 - [Azure Bastion is billed per hour and the billing starts when the resource gets created](https://azure.microsoft.com/en-us/pricing/details/azure-bastion/) Currently, there is no feature to “shutdown” or “disable” an Azure Bastion host to save costs.
-- Developer Sku is available in preview (April 2024). [Limitations](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview#sku)
+- [Developer Sku](https://learn.microsoft.com/en-us/azure/bastion/quickstart-developer-sku) is available in preview (April 2024). [Limitations](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview#sku)
   - Free during preview
   - Available in only a few regions
   - Does not support concurrent sessions, peering, etc.
