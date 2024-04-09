@@ -8,7 +8,8 @@
   - Free during preview
   - Available in only a few regions
   - Does not support concurrent sessions, peering, etc.
-- To stop the charges, you will need to delete the Azure Bastion resource. You can use the following command to delete the Azure Bastion host: az network bastion delete --name MyBastionHost --resource-group MyResourceGroup
+- To stop the charges, you will need to delete the Azure Bastion resource e.g.
+``` az network bastion delete --name MyBastionHost --resource-group MyResourceGroup ```
 - If you only need to use Azure Bastion at particular times of the day, you could automate creation and deletion of the Azure Bastion host. E.g. a pair of Logic Apps:
 ``` # Variables
 resourceGroup="YourResourceGroup"
