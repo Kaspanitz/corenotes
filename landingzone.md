@@ -11,6 +11,8 @@ Last Updated: March 2024
 - [It is now possible to create quota alerts (preview, April 2024) in the portal](https://portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas)
 
 ## 2. [Identity and access management](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)
+- PIM
+  - Define a privileged access strategy for administrative users (resources, roles, approvals, thresholds)
 - [Glossary of updated terminology](https://learn.microsoft.com/en-us/entra/fundamentals/new-name#glossary-of-updated-terminology):
   - Azure Active Directory Free =	Microsoft Entra ID Free
   - Azure Active Directory Premium P1	= Microsoft Entra ID P1
