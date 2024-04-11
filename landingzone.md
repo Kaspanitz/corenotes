@@ -7,7 +7,10 @@ Last Updated: March 2024
 # [Design Areas](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas)
 
 ## 1. [Billing and Microsoft Entra Tenant](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant)
-### Quotas
+### Tenant
+### Cost Management
+### Capacity
+#### Quotas
 - [It is now possible to create quota alerts (preview, April 2024) in the portal](https://portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas)
 
 ## 2. [Identity and access management](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)
