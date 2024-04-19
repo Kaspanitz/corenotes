@@ -60,7 +60,11 @@ Last Updated: March 2024
 ## 3. [Resource Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)
 
 ## 4. [Network topology and connectivity](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity)
-
+### DDoS
+- Front Door
+  - Despite all the protection with Front Door wrt DDoS, it’s still [recommended to enable Azure DDoS Protection on the origin virtual network](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-ddos). DDoS Protection customers receive extra benefits such as cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate assistance during an attack1. This layered approach ensures that your applications are well-protected against a wide range of potential DDoS attacks.
+    - Front Door Premium supports connecting to origins via private link. This removes the need for your origin to be accessed publicly3. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure Web App or Azure Storage.
+      
 ### VNET
 -  A NAT gateway is a more recommended way to provide outbound connectivity for VMs in the subnet.
   - VMs remain fully private
