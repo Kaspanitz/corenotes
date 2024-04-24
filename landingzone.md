@@ -97,6 +97,7 @@ Defender for SQL on machines will require AMA and can be seamlessly migrated thr
 
 ### Update Management
 - [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/)
+  - [Staged patching example](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/test-your-patches-a-staged-patching-solution-with-azure-update/ba-p/4051716)
 - [Move from Automation Update Management to Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?tabs=update-mgmt#azure-portal-experience-preview)
   - Portal experience in preview
   - Available at no extra charge for managing Azure VMs and Arc-enabled Azure Stack HCI VMs (for which Azure Benefits are enabled)
