@@ -1,5 +1,5 @@
 # Flow Logs
-## [VNET Flow Logs - Preview (March 2024)](https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview)
+## [VNET Flow Logs - GA (April 2024)](https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview)
 - Logging at the VNET level, as opposed to at the subnet and NIC level with NSG Flow Logs
 - All supported workloads within a VNET are recorded
 - In addition to existing support to identify traffic that network security group rules allow or deny, VNet flow logs support identification of traffic that Azure Virtual Network Manager security admin rules allow or deny. VNet flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using virtual network encryption.
