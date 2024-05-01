@@ -74,7 +74,7 @@ Last Updated: March 2024
 
 ### Application Gateway and Azure Firewall Patterns
 - [5 Patterns](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Sero-trust](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+- [Zero-trust](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
 
 ## 5. [Security](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/security)
 
