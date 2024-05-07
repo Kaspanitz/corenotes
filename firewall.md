@@ -106,8 +106,9 @@ Please note that these are just workarounds and may not perfectly fit your requi
 ## [WAF Review](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall?toc=%2Fazure%2Ffirewall%2Ftoc.json&bc=%2Fazure%2Ffirewall%2Fbreadcrumb%2Ftoc.json)
 
 # Management
+## Workbooks
 - [Using Azure Firewall Workbooks](https://learn.microsoft.com/en-us/azure/firewall/firewall-workbook)
-- IP Groups
+## IP Groups
   - IP Groups in Azure Firewall allow you to group and manage IP addresses for firewall rules in the following ways:
     - Source Address in DNAT Rules:
       You can use an IP Group as a source address in Destination Network Address Translation (DNAT) rules.
@@ -129,7 +130,7 @@ Please note that these are just workarounds and may not perfectly fit your requi
     - You can configure IP Groups using the Azure portal, Azure CLI, or REST API.
       For example, an IP Group could include a range of IP addresses representing specific services or applications. These groups enhance flexibility and simplify rule management within Azure Firewall.     - To create, browse, and manage IP Groups, you can use the Azure portal or command-line tools.
     - [Parallel IP Group updates (preview)](https://learn.microsoft.com/en-us/azure/firewall/ip-groups#parallel-ip-group-updates-preview)
-- Policies:
+## Policies
   - Even if you have a single Azure Firewall, using an Azure Firewall Policy is still recommended.
   - An Azure Firewall Policy is a global resource that can be used across multiple Azure Firewall instances.
   - It’s designed for use in both Secured Virtual Hubs and Hub Virtual Networks.
@@ -154,7 +155,7 @@ Please note that these are just workarounds and may not perfectly fit your requi
     - Policies created with non-empty parent policies inherit all rule collections from the parent policy.
   - In summary, even with a single Azure Firewall, using a policy streamlines management, ensures consistency, and provides flexibility for future scaling.
   - For performance optimization and best practices, consider organizing rules into Rule Collection Groups, using IP Groups, and exploring Policy Analytics
-- Hierarchy:
+## Hierarchy
   - Firewall Policy:
     A top-level resource that contains security and operational settings for Azure Firewall.
     Used to manage rule sets that the Azure Firewall uses to filter traffic.
