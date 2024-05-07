@@ -247,7 +247,6 @@ Please note that these are just workarounds and may not perfectly fit your requi
   - IP Group Reusability: IP groups streamline rule definitions.
 This example demonstrates how these components work together to secure and optimize traffic flow within an enterprise application.
 ### Examples of inherited Organizational Policies
-#### Organizational Policy:
 - Base Firewall Policy:
   - Created by the security team in the security team resource group.
   - Contains IT security-specific rules:
