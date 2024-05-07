@@ -131,6 +131,7 @@ Please note that these are just workarounds and may not perfectly fit your requi
       For example, an IP Group could include a range of IP addresses representing specific services or applications. These groups enhance flexibility and simplify rule management within Azure Firewall.     - To create, browse, and manage IP Groups, you can use the Azure portal or command-line tools.
     - [Parallel IP Group updates (preview)](https://learn.microsoft.com/en-us/azure/firewall/ip-groups#parallel-ip-group-updates-preview)
 ## Policies
+  - [Policy Analytics](https://learn.microsoft.com/en-us/azure/firewall/policy-analytics)
   - Even if you have a single Azure Firewall, using an Azure Firewall Policy is still recommended.
   - An Azure Firewall Policy is a global resource that can be used across multiple Azure Firewall instances.
   - It’s designed for use in both Secured Virtual Hubs and Hub Virtual Networks.
