@@ -186,11 +186,11 @@ Please note that these are just workarounds and may not perfectly fit your requi
     If no rule allows the traffic, it is denied by default.
 
 ## Scenario: Controlling Traffic for an Enterprise Application
-### Background:
+### Background
 - An enterprise has deployed a critical application in Azure.
 - The application consists of web servers, database servers, and APIs.
 - The enterprise wants to ensure secure and efficient communication between these components.
-### Components:
+### Components
 - Azure Firewall Policy:
   - The enterprise creates an Azure Firewall Policy to manage rule sets for traffic filtering.
   - The policy will organize rules based on a hierarchy.
