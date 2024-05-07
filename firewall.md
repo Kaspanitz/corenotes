@@ -105,7 +105,7 @@ Please note that these are just workarounds and may not perfectly fit your requi
 
 ## [WAF Review](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall?toc=%2Fazure%2Ffirewall%2Ftoc.json&bc=%2Fazure%2Ffirewall%2Fbreadcrumb%2Ftoc.json)
 
-## Management
+# Management
 - [Using Azure Firewall Workbooks](https://learn.microsoft.com/en-us/azure/firewall/firewall-workbook)
 - IP Groups
   - IP Groups in Azure Firewall allow you to group and manage IP addresses for firewall rules in the following ways:
