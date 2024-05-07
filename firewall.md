@@ -185,9 +185,86 @@ Please note that these are just workarounds and may not perfectly fit your requi
     Processed in a top-down approach.
     If no rule allows the traffic, it is denied by default.
 
-
-
-
-
-
-
+## Scenario: Controlling Traffic for an Enterprise Application
+### Background:
+- An enterprise has deployed a critical application in Azure.
+- The application consists of web servers, database servers, and APIs.
+- The enterprise wants to ensure secure and efficient communication between these components.
+### Components:
+- Azure Firewall Policy:
+  - The enterprise creates an Azure Firewall Policy to manage rule sets for traffic filtering.
+  - The policy will organize rules based on a hierarchy.
+- Rule Collection Groups:
+  The enterprise defines custom rule collection groups:
+  - WebServersRCG: Contains rules specific to web servers.
+  - DatabaseServersRCG: Contains rules for database servers.
+  - APIServersRCG: Contains rules for APIs.
+  Each group has a different priority value.
+- Rule Collections:
+  Within each rule collection group:
+  - WebServersRCG:
+    - Contains rules allowing HTTP and HTTPS traffic to web servers.
+    - Prioritizes web server communication.
+  - DatabaseServersRCG:
+    - Contains rules allowing SQL traffic to database servers.
+    - Prioritizes database server communication.
+  - APIServersRCG:
+    - Contains rules allowing API traffic to APIs.
+    - Prioritizes API communication.
+- Rules:
+  Within each rule collection:
+  - WebServersRCG:
+    - Rule 1: Allow inbound HTTP (port 80) traffic to web servers.
+    - Rule 2: Allow inbound HTTPS (port 443) traffic to web servers.
+  - DatabaseServersRCG:
+    - Rule 1: Allow inbound SQL (port 1433) traffic to database servers.
+  - APIServersRCG:
+    - Rule 1: Allow inbound API (custom port) traffic to APIs.
+- IP Groups:
+  The enterprise creates IP groups:
+  - WebServerIPs: Contains IP addresses of web servers.
+  - DatabaseServerIPs: Contains IP addresses of database servers.
+  - APIServerIPs: Contains IP addresses of APIs.
+  These IP groups are used in rule definitions.
+- Operational Flow:
+- Traffic Flow:
+  - Incoming traffic hits the Azure Firewall.
+  - The firewall processes rules in the following order:
+    - WebServersRCG: Web server-specific rules.
+    - DatabaseServersRCG: Database server-specific rules.
+    - APIServersRCG: API-specific rules.
+  - If a rule allows the traffic, it proceeds to the appropriate component.
+- Example Scenarios:
+  - A user accesses the application’s web interface:
+    - Traffic matches WebServersRCG rules and is allowed.
+  - A database replication process occurs:
+    - Traffic matches DatabaseServersRCG rules and is allowed.
+- An external API sends data to the application:
+  - Traffic matches APIServersRCG rules and is allowed.
+- Benefits:
+  - Centralized Management: Azure Firewall Policy simplifies rule management.
+  - Granular Control: Rule collections allow fine-grained control.
+  - IP Group Reusability: IP groups streamline rule definitions.
+This example demonstrates how these components work together to secure and optimize traffic flow within an enterprise application.
+### Examples of inherited Organizational Policies
+#### Organizational Policy:
+- Base Firewall Policy:
+  - Created by the security team in the security team resource group.
+  - Contains IT security-specific rules:
+    - Deny all inbound traffic by default.
+    - Allow specific protocols (e.g., HTTP, HTTPS, SQL) based on business needs.
+    - Threat Intelligence settings (alerts).
+  - Provides a common set of rules for all firewalls.
+- Application Team Policies:
+  - Each application team (Sales, Database, Engineering) creates its own firewall policy.
+  - These policies inherit from the base firewall policy.
+  - Application-specific rules are defined in each policy:
+    - Sales Team:
+      - Inherits base policy rules.
+      - Adds specific rules for sales-related services (e.g., CRM, sales portal).
+    - Database Team:
+      - Inherits base policy rules.
+      - Adds rules for database communication (e.g., SQL traffic).
+    - Engineering Team:
+      - Inherits base policy rules.
+      - Adds rules for engineering tools and services.
