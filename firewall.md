@@ -105,6 +105,84 @@ Please note that these are just workarounds and may not perfectly fit your requi
 
 ## [WAF Review](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall?toc=%2Fazure%2Ffirewall%2Ftoc.json&bc=%2Fazure%2Ffirewall%2Fbreadcrumb%2Ftoc.json)
 
+## Management
+- [Using Azure Firewall Workbooks](https://learn.microsoft.com/en-us/azure/firewall/firewall-workbook)
+- IP Groups
+  - IP Groups in Azure Firewall allow you to group and manage IP addresses for firewall rules in the following ways:
+    - Source Address in DNAT Rules:
+      You can use an IP Group as a source address in Destination Network Address Translation (DNAT) rules.
+      DNAT rules modify the destination IP address of incoming traffic.
+    - Source or Destination Address in Network Rules:
+      An IP Group can serve as either a source or destination address in network rules.
+      Network rules control traffic based on source and destination IP addresses.
+    - Source Address in Application Rules:
+      IP Groups can also be used as a source address in application rules.
+      Application rules allow or deny traffic based on application-specific criteria.
+    - Key points about IP Groups:
+      - An IP Group can contain:
+        - A single IP address.
+        - Multiple IP addresses.
+        - One or more IP address ranges.
+        - A combination of addresses and ranges.
+    - IP Groups can be reused across multiple firewalls, regions, and subscriptions in Azure.
+    - Group names must be unique.
+    - You can configure IP Groups using the Azure portal, Azure CLI, or REST API.
+      For example, an IP Group could include a range of IP addresses representing specific services or applications. These groups enhance flexibility and simplify rule management within Azure Firewall.     - To create, browse, and manage IP Groups, you can use the Azure portal or command-line tools.
+    - [Parallel IP Group updates (preview)](https://learn.microsoft.com/en-us/azure/firewall/ip-groups#parallel-ip-group-updates-preview)
+- Policies:
+  - Even if you have a single Azure Firewall, using an Azure Firewall Policy is still recommended.
+  - An Azure Firewall Policy is a global resource that can be used across multiple Azure Firewall instances.
+  - It’s designed for use in both Secured Virtual Hubs and Hub Virtual Networks.
+  - Policies work seamlessly across regions and subscriptions.
+  - Creation and Association:
+    - You can create and manage policies through various methods, including the Azure portal, REST API, templates, Azure PowerShell, CLI, and Terraform.
+    - These policies can be associated with one or more virtual hubs or VNets.
+    - The firewall itself can reside in any subscription associated with your account and in any region.
+  - Classic Rules vs. Policies:
+   - While Azure Firewall supports both Classic rules and policies, policies are the recommended configuration.
+   - Here’s a comparison:
+    - Policies contain NAT, Network, Application rules, custom DNS settings, IP Groups, Threat Intelligence settings, IDPS, TLS Inspection, Web Categories, and URL Filtering.
+    - Classic rules cover NAT, Network, and Application rules, custom DNS settings, IP Groups, and Threat Intelligence settings.
+    - Policies provide central management using Firewall Manager, making it easier to handle multiple firewalls.
+  - Azure Firewall supports three policy types:
+    - Basic: Includes NAT rules, Network rules, Application rules, IP Groups, and Threat Intelligence (alerts).
+    - Standard: Adds Custom DNS, DNS proxy, Web Categories, and Threat Intelligence.
+    - Premium: Includes all Standard features plus TLS Inspection, URL Filtering, and IDPS.
+  - Hierarchical Policies:
+    - You can create new policies from scratch or inherit from existing ones.
+    - Inheritance allows DevOps to create local firewall policies on top of organization-mandated base policies.
+    - Policies created with non-empty parent policies inherit all rule collections from the parent policy.
+  - In summary, even with a single Azure Firewall, using a policy streamlines management, ensures consistency, and provides flexibility for future scaling.
+  - For performance optimization and best practices, consider organizing rules into Rule Collection Groups, using IP Groups, and exploring Policy Analytics
+- Hierarchy:
+  - Firewall Policy:
+    A top-level resource that contains security and operational settings for Azure Firewall.
+    Used to manage rule sets that the Azure Firewall uses to filter traffic.
+    Organizes, prioritizes, and processes the rule sets based on a hierarchy.
+  - Rule Collection Groups:
+    The first unit processed by Azure Firewall.
+    Groupings of rule collections.
+    Follow a priority order based on values.
+    Three default rule collection groups:
+    Default DNAT (Destination Network Address Translation) rule collection group (Priority: 100)
+    Default Network rule collection group (Priority: 200)
+    Default Application rule collection group (Priority: 300)
+    Custom rule collection groups can be created with desired priority values.
+  - Rule Collections:
+    Belong to a rule collection group.
+    Contain one or multiple rules.
+    The second unit processed by the firewall.
+    Follow a priority order based on values.
+    Types of rule collections:
+    - DNAT: For Destination NAT rules.
+    - Network: For network rules.
+    - Application: For application rules.
+  - Rules:
+    Belong to a rule collection.
+    Specify which traffic is allowed or denied in your network.
+    The third unit processed by the firewall.
+    Processed in a top-down approach.
+    If no rule allows the traffic, it is denied by default.
 
 
 
