@@ -1,5 +1,7 @@
 # Virtual WAN
 Last update: 9 July 2024
+- [Mainstream Microsoft Service](https://learn.microsoft.com/en-us/azure/reliability/availability-service-by-category#available-services-by-region-category)
+  - Available in all recommended regions within 90 days of the region general availability. Demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
 - Central operational interface for networking, routing and security
 - Hub-Spoke architecture
 - Scale
@@ -38,6 +40,12 @@ Last update: 9 July 2024
       - VNet-to-hub-hub-to-VNet (h)
       - ExpressRoute Global Reach and Virtual WAN
         - Private communication between on-premises networks across different locations using ExpressRoute circuits and Microsoft’s global network
+        - ExpressRoute Skus supported by vWAN: Local, Standard, and Premium
+        - Can enable ExpressRoute to ExpressRoute transit connectivity by enabling ExpressRoute **Global Reach** on your ExpressRoute circuits
+          -  Global Reach is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network.
+          -  Note 1: ExpressRoute-to-ExpressRoute transit connectivity between circuits with the Global Reach add-on **will not transit the vWAN hub** because Global Reach enables a more optimal path over the global backbone
+          -  Note 2: The Routing Intent feature can be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the vWAN Hub. **This option doesn't require Global Reach**
+        
         ![anytoany](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png "anytoany")
 
 ## Features
