@@ -1,12 +1,17 @@
 # Virtual WAN
 Last update: 9 July 2024
+
 - [Mainstream Microsoft Service](https://learn.microsoft.com/en-us/azure/reliability/availability-service-by-category#available-services-by-region-category)
   - Available in all recommended regions within 90 days of the region general availability. Demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
 - Central operational interface for networking, routing and security
 - Hub-Spoke architecture
 - Scale
 - Performance
-- [Global transit network architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
+- [vWAN limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
+- [vWAN Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
+
+## [Global transit network architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
+
   - 'Hub' enables transitive connectivity between endpoints that might be distributed across different types of 'spokes' e.g.
     - Virtual network (VNets)
     - Physical branch site
