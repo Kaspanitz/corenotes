@@ -13,10 +13,10 @@ Last update: 9 July 2024
     - Remote user
     - Internet
   - [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany)
-    - Less complex to manage than full mesh networks
-    - Examples via transit hub(s):
+  - Less complex to manage than full mesh networks
+  - Examples via transit hub(s):
     
-    ![anytoany](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png "anytoany")
+    <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png" alt="anytoany" title="anytoany" width="500">
     
       - Branch-to-VNet (a)
         - Explicit gateway transit not required - vWAN enables automatic gateway transit
@@ -72,12 +72,16 @@ Last update: 9 July 2024
       - vWAN hub in region with most spokes (branches, VNets, users)
       - Connect spokes in other regions to the hub e.g. VNet in one region can be connected to a vWAN hub in a different region
       - Good option when an enterprise footprint is mostly in one region with a few remote spokes
-        ![1hub](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/transit-network.png "1vwan")
+
+        <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/transit-network.png" alt="1vwan" title="1vwan" width="500">
+
     - Hub-to-hub:
       - When optimal (latency-wise) to access the cloud from a region closest to physical site and users
       - When multiple hubs are enabled in a single vWAN, the hubs are automatically interconnected via hub-to-hub links, thus enabling global connectivity between branches and Vnets that are distributed across multiple regions.
       - Hubs in same vWAN, can be associated with different regional access and security policies
-        ![multiplehubs](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/cross-region.png "2vwan")
+        
+        <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/cross-region.png" alt="2vwan" title="2vwan" width="500">
+        
 - Routing, Azure Firewall, and encryption for private connectivity
   - Routing intent and routing policies:
     - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
