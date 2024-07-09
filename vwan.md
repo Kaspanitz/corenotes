@@ -1,4 +1,5 @@
 # Virtual WAN
+Last update: 9 July 2024
 - Central operational interface for networking, routing and security
 - Hub-Spoke architecture
 - Scale
