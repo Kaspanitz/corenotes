@@ -87,5 +87,9 @@ Last update: 9 July 2024
       Note: Max 1 of each/vWAN Hub. A single next hop.
       1. Internet Traffic Routing Policy: vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke)
       2. Private Traffic Routing Policy: Both branch and Vnet address prefixes
-      [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
+     - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
+     - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
+     - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
+  - [Encryped ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
+    - [Performance recommendations for encrypted ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
       
