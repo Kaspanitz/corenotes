@@ -13,6 +13,21 @@
     - Less complex to manage than full mesh networks
     - Examples via transit hub(s):
       - Branch-to-VNet (a)
+        - Explicit gateway transit not required - vWAN enables automatic gateway transit
+        - [How to connect SD-WAN CPE to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-configure-automation-providers)
+        - [Partner Branch IPsec connectivity](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-locations-partners#partners)
+        - [Partner SD-WAN CONNECTIVITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+          - Barracuda Networks
+          - Cisco SD-WAN
+          - VMware SD-WAN
+          - Versa Networks
+          - Aruba EdgeConnect	
+        - [Partner SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+          - Check Point CloudGuard Network Security for vWAN
+          - Fortinet Next-Generation Firewall (NGFW)
+          - (Preview) Cisco Secure Firewall Threat Defense for Azure Virtual WAN
+        - [Partner CONNECTIVITY & SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+          - Fortinet Next-Generation Firewall (NGFW)
       - Branch-to-branch (b)
       - Remote User-to-VNet (c)
       - Remote User-to-branch (d)
