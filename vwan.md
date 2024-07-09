@@ -22,6 +22,12 @@
   - transitive connectivity for VNETs
   - cross-region VNet connection
     - VNet in one region can be connected to a vWAN hub in a different region
-    - Establish a single vWAN hub in the region with most spokes (branches, VNets, users), then connecting spokes in other regions to the hub
-      (good option when an enterprise footprint is mostly in one region with a few remote spokes)
+    - Single Hub:
+      - vWAN hub in region with most spokes (branches, VNets, users)
+      - Connect spokes in other regions to the hub
+      - Good option when an enterprise footprint is mostly in one region with a few remote spokes
+        ![1vwan](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/transit-network.png "1vwan")
+    - Hub-to-hub:
+      - When optimal (latency-wise) to access the cloud from a region closest to physical site and users
+        ![2vwan](https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/cross-region.png "2vwan")
 - Routing, Azure Firewall, and encryption for private connectivity
