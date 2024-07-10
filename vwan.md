@@ -116,3 +116,10 @@ Last update: 9 July 2024
 
 - [Performance recommendations for encrypted ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
       
+## Architectures
+- Secure hub, single region with routing intent
+- Secure hub, single region with custom route tables, static routes, propagation and association
+- Unsecured hub, single region with custom route tables, static routes, propagation and association
+- Multi-hub, secured and secured or secured and unsecured or unsecured and unsecured, single region
+- Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
+- Cross-region, multiple hubs secured or unsecured
