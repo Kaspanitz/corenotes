@@ -47,6 +47,10 @@
 - If you want a higher degree of availability, you can configure ExpressRoute circuits in different peering locations.
 - Adding different locations protects your ExpressRoute connection from regional outages.
 - Another option is to have multiple ExpressRoute circuits configured through different providers, so that should one provider suffer an outage, you can fail over to a second provider.
+- [In development (June 2024):](https://azure.microsoft.com/en-us/updates/v2/ExpressRoute-Resiliency-Enhancements) [ExpressRoute Resiliency levels (Maximum, High, Standard)](https://learn.microsoft.com/en-us/azure/expressroute/design-architecture-for-resiliency)
+  - Maximum: 2x circuits, 4x connections, 2x peering locations 1,000kms apart
+  - High: 1x circuit, 2x connections, 2x locations < 5kms apart
+  - Standard:1x circuits, 2x connections, 1x location
 
 ## SKU Scope Access
 
