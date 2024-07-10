@@ -10,7 +10,7 @@ Last update: 9 July 2024
 - [vWAN limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
 - [vWAN Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
 
-## [Global transit network architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
+## [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
 
   - 'Hub' enables transitive connectivity between endpoints that might be distributed across different types of 'spokes' e.g.
     - Virtual network (VNets)
@@ -19,7 +19,8 @@ Last update: 9 July 2024
     - Internet
   - [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany)
   - Less complex to manage than full mesh networks
-  - Examples via transit hub(s):
+
+### Examples via transit hub(s)
     
     <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png" alt="anytoany" title="anytoany" width="500">
     
@@ -63,16 +64,22 @@ Last update: 9 July 2024
             - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
 ## Features
-- Branch connectivity:
+
+### Branch connectivity
+
   - Virtual WAN Partner devices (e.g. SD-WAN or VPN CPE)
   - Site-to-site VPN connectivity (S2S)
   - Private connectivity (ExpressRoute)
   - VPN ExpressRoute inter-connectivity
-- User connectivity:
+
+### User connectivity
+
   - Remote user VPN connectivity (P2S)
-- Intra-cloud connectivity:
-  - transitive connectivity for Vnets
-  - cross-region VNet connection
+
+### Intra-cloud connectivity
+
+  - Transitive connectivity for Vnets
+  - Cross-region VNet connection
     - Single Hub:
       - vWAN hub in region with most spokes (branches, VNets, users)
       - Connect spokes in other regions to the hub e.g. VNet in one region can be connected to a vWAN hub in a different region
@@ -87,8 +94,10 @@ Last update: 9 July 2024
         
         <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/cross-region.png" alt="2vwan" title="2vwan" width="500">
         
-- Routing, Azure Firewall, and encryption for private connectivity
-  - Routing intent and routing policies:
+### Routing, Azure Firewall, and encryption for private connectivity
+
+#### Routing intent and routing policies
+
     - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
     - It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
     - Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
