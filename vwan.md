@@ -14,15 +14,15 @@ Last update: 9 July 2024
 
 # [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
 
-- 'Hub' enables transitive connectivity between endpoints that might be distributed across different types of 'spokes' e.g.
+- Hub enables transitive connectivity between endpoints distributed across different spokes e.g.
   - Virtual network (VNets)
   - Physical branch site
   - Remote user
   - Internet
 - [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany)
-- Less complex to manage than full mesh networks
+- Easier to manage than full mesh networks
 
-  ## Examples via transit hub(s)
+  ## Connectivity Examples
     
   <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png" alt="anytoany" title="anytoany" width="500">
      
