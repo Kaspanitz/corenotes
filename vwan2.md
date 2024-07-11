@@ -91,8 +91,18 @@ Last update: 9 July 2024
 - Hub Router
 - BGP
 ## Concepts
-  - Hub RT: 1 or more routes
-  - Hub Routing Intent & Policies: Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
+
+### Hub RT
+- Hub RT can contain one or more routes
+- A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed.
+- A Connection typically has a routing configuration that associates or propagates to a route table.
+  
+### Hub Routing Intent & Policies
+- Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
+- Each Hub can have, at most, one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource.
+- Private Traffic includes both branch and Vnet address prefixes (Routing Policies considers them as one entity within the Routing Intent concepts)
+  - **Internet Traffic Routing Policy**: When an Internet Traffic Routing Policy is configured on a hub, all branch and Vnet connections to that Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
+  - **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a hub, all branch and Vnet traffic in and out of the Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy.
 
 ### Connections (routing configuration)
 - Connection Types:
@@ -127,6 +137,15 @@ Last update: 9 July 2024
 - Helpful during propagation of routes from connections to multiple RTs e.g., the Default Route Table has a built-in label called 'Default'. When users propagate connection routes to 'Default' label, it automatically applies to all the Default Route Tables across every hub in the Virtual WAN.
 - If no label is specified in the list of labels that a VNet connection is propagating to, then the Vnet connection will automatically propagate to the 'Default' label.
 
+### Static Routes in Vnet connection
+- To direct traffic from hub through a next hop IP, which could be an NVA provisioned in a Spoke VNet attached to a hub
+- Static route is composed of a route name, list of destination prefixes, and a next hop IP.
+
+### Hub Reset
+- A way to bring any failed resources such as RTs, hub router, or the hub resource itself back to its rightful provisioning state
+- Consider resetting the hub prior to contacting Microsoft for support
+- Doesn't reset any of the gateways in a hub
+ 
 ## [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
 - RT:
   - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
@@ -149,7 +168,16 @@ Last update: 9 July 2024
       - These routes can be propagated inter-hub, except for the default route 0/0.
       - This feature is in the process of rolling out. If you need this feature enabled please open a support case - as at July 2024
 
-## Routing intent
+## Considerations
+- All branch connections need to be associated to the Default RT. (All branches will then learn the same prefixes)
+- All branch connections need to propagate their routes to the same set of RTs e.g., if you decide that branches should propagate to the Default RT, this configuration should be consistent across all branches. As a result, all connections associated to the Default RT will be able to reach all of the branches.
+- When you use Azure Firewall in multiple regions, all spoke Vnets must be associated to the same RT e.g., having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same hub isn't possible.
+- You can specify multiple next hop IP addresses on a single Vnet connection. However, Vnet Connection doesn't support ‘multiple/unique’ next hop IP to the ‘same’ NVA in a SPOKE Vnet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
+- All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. **This route doesn't propagate across hubs**
+- You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the Vnet prefix e.g., in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the Vnet prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same Vnet.
+- While it's true that 2 hubs on the same virtual WAN will announce routes to each other (as long as the propagation is enabled to the same labels), this only applies to dynamic routing. Once you define a static route, this isn't the case.
+
+## Additional Routing intent information
 
 - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
 - It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
