@@ -107,17 +107,17 @@ Last update: 9 July 2024
   - Customers must choose between [two configuration options](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute):
 
 ### Option 1: ExpressRoute Global Reach
-      -   ExpressRoute-to-ExpressRoute transit connectivity with ExpressRoute **Global Reach** added to ExpressRoute circuits
-      -   Global Reach is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network.
-      - ExpressRoute-to-ExpressRoute transit connectivity between circuits with Global Reach **will not transit via the vWAN hub** because Global Reach enables a more optimal path over the global backbone
+  -   ExpressRoute-to-ExpressRoute transit connectivity with ExpressRoute **Global Reach** added to ExpressRoute circuits
+  -   Global Reach is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network.
+  - ExpressRoute-to-ExpressRoute transit connectivity between circuits with Global Reach **will not transit via the vWAN hub** because Global Reach enables a more optimal path over the global backbone
       
 ### Option 2: Routing Intent private policy
-      - The [Routing Intent](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute) feature can be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the vWAN Hub.
-      - **This option doesn't require Global Reach**
-      - **Note:** To enable ExpressRoute-to-ExpressRoute transit connectivity via a Firewall appliance in the hub with private routing policies, open a support case with Microsoft Support. This option is not compatible with Global Reach and requires Global Reach to be disabled to ensure proper transit routing between all ExpressRoute circuits connected to Virtual WAN.
-    - Connectivity across ExpressRoute circuits via a Firewall appliance in the hub with routing intent private routing policy is available in the following configurations:
-      - Both ExpressRoute circuits are connected to the same hub and a private routing policy is configured on that hub.
-      - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
+  - The [Routing Intent](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#expressroute) feature can be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the vWAN Hub.
+  - **This option doesn't require Global Reach**
+  - **Note:** To enable ExpressRoute-to-ExpressRoute transit connectivity via a Firewall appliance in the hub with private routing policies, open a support case with Microsoft Support. This option is not compatible with Global Reach and requires Global Reach to be disabled to ensure proper transit routing between all ExpressRoute circuits connected to Virtual WAN.
+- Connectivity across ExpressRoute circuits via a Firewall appliance in the hub with routing intent private routing policy is available in the following configurations:
+  - Both ExpressRoute circuits are connected to the same hub and a private routing policy is configured on that hub.
+  - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
 ## [Encryped ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
 
