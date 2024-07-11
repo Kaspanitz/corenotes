@@ -25,7 +25,8 @@ Last update: 9 July 2024
   ## Connectivity Examples
     
   <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png" alt="anytoany" title="anytoany" width="500">
-     
+
+
   - Branch-to-VNet (a)
     - Explicit gateway transit not required - vWAN enables automatic gateway transit
     - [How to connect SD-WAN CPE to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-configure-automation-providers)
