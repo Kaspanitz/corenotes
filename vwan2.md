@@ -120,6 +120,6 @@ Last update: 9 July 2024
   - Both ExpressRoute circuits are connected to the same hub and a private routing policy is configured on that hub.
   - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
-## [Encryped ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
+## [Encryped ExpressRoute (S2S VPN tunnel over ExpressRoute Circuit)](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
 
 - [Performance recommendations for encrypted ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
