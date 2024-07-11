@@ -32,23 +32,23 @@ Last update: 9 July 2024
   - Site-to-site VPN connectivity (S2S)
   - Private connectivity (ExpressRoute)
   - VPN ExpressRoute inter-connectivity
+  - [How to connect SD-WAN CPE to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-configure-automation-providers)
+  - [Partner Branch IPsec connectivity](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-locations-partners#partners)
+  - [Partner SD-WAN CONNECTIVITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+    - Barracuda Networks
+    - Cisco SD-WAN
+    - VMware SD-WAN
+    - Versa Networks
+    - Aruba EdgeConnect	
+  - [Partner SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+    - Check Point CloudGuard Network Security for vWAN
+    - Fortinet Next-Generation Firewall (NGFW)
+    - (Preview) Cisco Secure Firewall Threat Defense for Azure Virtual WAN
+  - [Partner CONNECTIVITY & SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
+    - Fortinet Next-Generation Firewall (NGFW)
   
   #### Branch-to-VNet (a)
     - Gateway transit not required (vWAN enables automatic gateway transit)
-    - [How to connect SD-WAN CPE to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-configure-automation-providers)
-    - [Partner Branch IPsec connectivity](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-locations-partners#partners)
-    - [Partner SD-WAN CONNECTIVITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
-      - Barracuda Networks
-      - Cisco SD-WAN
-      - VMware SD-WAN
-      - Versa Networks
-      - Aruba EdgeConnect	
-    - [Partner SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
-      - Check Point CloudGuard Network Security for vWAN
-      - Fortinet Next-Generation Firewall (NGFW)
-      - (Preview) Cisco Secure Firewall Threat Defense for Azure Virtual WAN
-    - [Partner CONNECTIVITY & SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
-      - Fortinet Next-Generation Firewall (NGFW)
   #### Branch-to-branch (b)
   #### Branch-to-hub-hub-to-Branch (f)
   #### Branch-to-hub-hub-to-VNet (g)
@@ -101,8 +101,20 @@ Last update: 9 July 2024
 - Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
 - Each Hub can have, at most, one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource.
 - Private Traffic includes both branch and Vnet address prefixes (Routing Policies considers them as one entity within the Routing Intent concepts)
-  - **Internet Traffic Routing Policy**: When an Internet Traffic Routing Policy is configured on a hub, all branch and Vnet connections to that Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
-  - **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a hub, all branch and Vnet traffic in and out of the Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy.
+- Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
+- It is **not possible** to configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
+- Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
+- Two types:
+  Note: Max 1 of each/vWAN Hub i.e. a single next hop.
+  1. **Internet Traffic Routing Policy**:
+    - vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and NVA (deployed in the hub or spoke)
+    - When an Internet Traffic Routing Policy is configured on a hub, all branch and Vnet connections to that Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
+  2. **Private Traffic Routing Policy**: 
+    - Both branch and Vnet address prefixes
+    - When a Private Traffic Routing Policy is configured on a hub, all branch and Vnet traffic in and out of the Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy.
+ - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
+ - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
+ - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
 
 ### Connections (routing configuration)
 - Connection Types:
@@ -176,19 +188,6 @@ Last update: 9 July 2024
 - All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. **This route doesn't propagate across hubs**
 - You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the Vnet prefix e.g., in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the Vnet prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same Vnet.
 - While it's true that 2 hubs on the same virtual WAN will announce routes to each other (as long as the propagation is enabled to the same labels), this only applies to dynamic routing. Once you define a static route, this isn't the case.
-
-## Additional Routing intent information
-
-- Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
-- It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
-- Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
-- Two types:
-  Note: Max 1 of each/vWAN Hub i.e. a single next hop.
-  1. Internet Traffic Routing Policy: vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke)
-  2. Private Traffic Routing Policy: Both branch and Vnet address prefixes
- - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
- - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
- - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
 
 # ExpressRoute
   
