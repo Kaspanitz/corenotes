@@ -5,8 +5,7 @@ Last update: 9 July 2024
   - Available in all recommended regions within 90 days of the region general availability. Demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
 - Central operational interface for networking, routing and security
 - Hub-Spoke architecture
-- Scale
-- Performance
+- Scale, Performance and Security
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
 - [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
@@ -78,8 +77,29 @@ Last update: 9 July 2024
       - Hubs in same vWAN, can be associated with different regional access and security policies
     #### VNet-to-VNet (e)
     - VNet-to-hub-hub-to-VNet (h)
-  
-  ## ExpressRoute and vWAN
+
+## Architectures
+- Secure hub, single region with routing intent
+- Secure hub, single region with custom route tables, static routes, propagation and association
+- Unsecured hub, single region with custom route tables, static routes, propagation and association
+- Multi-hub, secured and secured or secured and unsecured or unsecured and unsecured, single region
+- Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
+- Cross-region, multiple hubs secured or unsecured
+
+# Routing intent and routing policies
+
+- Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
+- It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
+- Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
+- Two types:
+  Note: Max 1 of each/vWAN Hub i.e. a single next hop.
+  1. Internet Traffic Routing Policy: vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke)
+  2. Private Traffic Routing Policy: Both branch and Vnet address prefixes
+ - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
+ - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
+ - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
+
+# ExpressRoute
   
   - Private communication between on-premises networks across different locations using ExpressRoute circuits and Microsoft’s global network
   - ExpressRoute Skus supported by vWAN: Local, Standard, and Premium
@@ -96,30 +116,6 @@ Last update: 9 July 2024
       - Both ExpressRoute circuits are connected to the same hub and a private routing policy is configured on that hub.
       - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
-       
-## Routing, Azure Firewall, and encryption for private connectivity
-
-### Routing intent and routing policies
-
-- Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
-- It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
-- Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
-- Two types:
-  Note: Max 1 of each/vWAN Hub i.e. a single next hop.
-  1. Internet Traffic Routing Policy: vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke)
-  2. Private Traffic Routing Policy: Both branch and Vnet address prefixes
- - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
- - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
- - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
-
-### [Encryped ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
+## [Encryped ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
 
 - [Performance recommendations for encrypted ExpressRoute](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
-      
-## Architectures
-- Secure hub, single region with routing intent
-- Secure hub, single region with custom route tables, static routes, propagation and association
-- Unsecured hub, single region with custom route tables, static routes, propagation and association
-- Multi-hub, secured and secured or secured and unsecured or unsecured and unsecured, single region
-- Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
-- Cross-region, multiple hubs secured or unsecured
