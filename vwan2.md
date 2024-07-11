@@ -93,13 +93,23 @@ Last update: 9 July 2024
 - Concepts:
   - Hub RT: 1 or more routes
   - Hub Routing Intent & Policies: Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
-  - Connections: Routing configuration.
+  - **Connections** i.e. routing configuration
     - Connection Types:
       1.  VPN connection: Connects a VPN site to a virtual hub VPN gateway.
       2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway.
       3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway.
       4.  Hub virtual network connection: Connects virtual networks to a virtual hub.
     - By default, all connections **associate and propagate to the Default route table**
+      - Each hub has its own Default RT, which can be edited to add a static route(s).
+      - Routes added statically take precedence over dynamically learned routes for the same prefixes.
+      - **Associations**
+        - A connection is associated to 1x RT
+        - Association allows traffic from that connection to be sent to the destination indicated as routes in the RT
+        - A RT can have multiple associated connections
+        - All VPN, ExpressRoute, and User VPN connections are associated to the same (default) RT
+          
+    <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/about-virtual-hub-routing/concepts-association.png" alt="association" title="association" width="750">
+    
 - [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
   - RT:
     - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
