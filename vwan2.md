@@ -86,7 +86,7 @@ Last update: 9 July 2024
 - Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
 - Cross-region, multiple hubs secured or unsecured
 
-# Routing intent and routing policies
+# Routing intent
 
 - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
 - It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
