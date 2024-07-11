@@ -95,7 +95,7 @@ Last update: 9 July 2024
     - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
     - Labels (group RTs)
     - Associations:
-      - Associate connections to the RT e.g. Branches (Yes/No - applies to all connections), Vnets (choose Vnets)
+      - **Associate connections to the RT** e.g. Branches (Yes/No - applies to all connections), Vnets (choose Vnets)
     - Propagations:
 
 ## Routing intent
