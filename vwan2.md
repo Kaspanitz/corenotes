@@ -99,7 +99,7 @@ Last update: 9 July 2024
       2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway.
       3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway.
       4.  Hub virtual network connection: Connects virtual networks to a virtual hub.
-    - By default, all connections associate and propagate to the Default route table
+    - By default, all connections **associate and propagate to the Default route table**
 - [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
   - RT:
     - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
