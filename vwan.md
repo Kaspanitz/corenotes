@@ -28,7 +28,7 @@ Last update: 9 July 2024
 
 
   - Branch-to-VNet (a)
-    - Explicit gateway transit not required as vWAN enables automatic gateway transit
+    - Gateway transit not required (vWAN enables automatic gateway transit)
     - [How to connect SD-WAN CPE to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-configure-automation-providers)
     - [Partner Branch IPsec connectivity](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-locations-partners#partners)
     - [Partner SD-WAN CONNECTIVITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
