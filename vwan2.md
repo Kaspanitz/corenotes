@@ -2,7 +2,8 @@
 Last update: 9 July 2024
 
 - [Mainstream Service](https://learn.microsoft.com/en-us/azure/reliability/availability-service-by-category#available-services-by-region-category)
-  - Available in all recommended regions within 90 days of the region general availability. Demand-driven in alternate regions, and many are already deployed into a large subset of alternate regions.
+  - Available in all **recommended regions** within 90 days of the region general availability
+  - Demand-driven in **alternate regions** (already deployed into a large subset of alternate regions)
 - Central operational interface for networking, routing and security
 - Hub-Spoke architecture
 - Scale, Performance and Security
