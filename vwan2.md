@@ -97,6 +97,20 @@ Last update: 9 July 2024
     - Associations:
       - **Associate connections to the RT** e.g. Branches (Yes/No - applies to all connections), Vnets (choose Vnets)
     - Propagations:
+      - Set **routes to propagate from connections to RT** e.g. Branches (Yes/No - choose labels to propagate branch connections to), Vnets (choose Vnets)
+  - Vnet Connection:
+    - Hub, Vnet
+    - Routing:
+      - Propagate to none (Yes/No)
+      - Associate to RT
+      - Propagate to RTs
+      - Propagate to Labels
+      - Static Routes
+      - Bypass next Hop IP for workloads **within this VNet**
+        - Lets you deploy NVAs and other workloads into the same VNet without forcing all the traffic through the NVA
+      - Propagate static route (Yes/No)
+        - These routes can be propagated inter-hub, except for the default route 0/0.
+        - This feature is in the process of rolling out. If you need this feature enabled please open a support case - as at July 2024
 
 ## Routing intent
 
