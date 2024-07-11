@@ -87,50 +87,67 @@ Last update: 9 July 2024
 - Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
 - Cross-region, multiple hubs secured or unsecured
 
-# Routing
+# [Routing](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing)
 - Hub Router
 - BGP
-- Concepts:
+## Concepts
   - Hub RT: 1 or more routes
   - Hub Routing Intent & Policies: Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
-  - **Connections** i.e. routing configuration
-    - Connection Types:
-      1.  VPN connection: Connects a VPN site to a virtual hub VPN gateway.
-      2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway.
-      3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway.
-      4.  Hub virtual network connection: Connects virtual networks to a virtual hub.
-    - By default, all connections **associate and propagate to the Default route table**
-      - Each hub has its own Default RT, which can be edited to add a static route(s).
-      - Routes added statically take precedence over dynamically learned routes for the same prefixes.
-      - **Associations**
-        - A connection is associated to 1x RT
-        - Association allows traffic from that connection to be sent to the destination indicated as routes in the RT
-        - A RT can have multiple associated connections
-        - All VPN, ExpressRoute, and User VPN connections are associated to the same (default) RT
-          
-    <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/about-virtual-hub-routing/concepts-association.png" alt="association" title="association" width="750">
+
+### Connections (routing configuration)
+- Connection Types:
+  1.  VPN connection: Connects a VPN site to a virtual hub VPN gateway.
+  2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway.
+  3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway.
+  4.  Hub virtual network connection: Connects virtual networks to a virtual hub.
+- By default, all connections **associate and propagate to the Default route table**
+  - Each hub has its own Default RT, which can be edited to add a static route(s).
+  - Routes added statically take precedence over dynamically learned routes for the same prefixes.
+
+### Associations
+- A connection is associated to 1x RT
+- Association allows traffic from that connection to be sent to the destination indicated as routes in the RT
+- A RT can have multiple associated connections
+- All VPN, ExpressRoute, and User VPN connections are associated to the same (default) RT
     
-- [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
-  - RT:
-    - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
-    - Labels (group RTs)
-    - Associations:
-      - **Associate connections to the RT** e.g. Branches (Yes/No - applies to all connections), Vnets (choose Vnets)
-    - Propagations:
-      - Set **routes to propagate from connections to RT** e.g. Branches (Yes/No - choose labels to propagate branch connections to), Vnets (choose Vnets)
-  - Vnet Connection:
-    - Hub, Vnet
-    - Routing:
-      - Propagate to none (Yes/No)
-      - Associate to RT
-      - Propagate to RTs
-      - Propagate to Labels
-      - Static Routes
-      - Bypass next Hop IP for workloads **within this VNet**
-        - Lets you deploy NVAs and other workloads into the same VNet without forcing all the traffic through the NVA
-      - Propagate static route (Yes/No)
-        - These routes can be propagated inter-hub, except for the default route 0/0.
-        - This feature is in the process of rolling out. If you need this feature enabled please open a support case - as at July 2024
+<img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/about-virtual-hub-routing/concepts-association.png" alt="association" title="association" width="750">
+
+### Propagations
+- Connections dynamically propagate routes to a RT
+- S2S, ExpressRoute, and P2S connection routes are propagated from the hub to on-premises router using BGP
+- Routes can be propagated to one or multiple RTs
+- A 'None RT' is available for each hub
+  - Propagating to None RT implies no routes are required to be propagated from the connection
+  - VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables    
+
+<img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/about-virtual-hub-routing/concepts-propagation.png" alt="association" title="association" width="750">
+
+### Labels
+- Logically group RT
+- Helpful during propagation of routes from connections to multiple RTs e.g., the Default Route Table has a built-in label called 'Default'. When users propagate connection routes to 'Default' label, it automatically applies to all the Default Route Tables across every hub in the Virtual WAN.
+- If no label is specified in the list of labels that a VNet connection is propagating to, then the Vnet connection will automatically propagate to the 'Default' label.
+
+## [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
+- RT:
+  - Name, Route Name, Destination Type, Destination Prefix (aggregate e.g. VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16), Next Hop, Next Hop IP
+  - Labels
+  - Associations:
+    - **Associate connections to the RT** e.g. Branches (Yes/No - applies to all connections), Vnets (choose Vnets)
+  - Propagations:
+    - Set **routes to propagate from connections to RT** e.g. Branches (Yes/No - choose labels to propagate branch connections to), Vnets (choose Vnets)
+- Vnet Connection:
+  - Hub, Vnet
+  - Routing:
+    - Propagate to none (Yes/No)
+    - Associate to RT
+    - Propagate to RTs
+    - Propagate to Labels
+    - Static Routes
+    - Bypass next Hop IP for workloads **within this VNet**
+      - Lets you deploy NVAs and other workloads into the same VNet without forcing all the traffic through the NVA
+    - Propagate static route (Yes/No)
+      - These routes can be propagated inter-hub, except for the default route 0/0.
+      - This feature is in the process of rolling out. If you need this feature enabled please open a support case - as at July 2024
 
 ## Routing intent
 
