@@ -79,7 +79,7 @@ Last update: 9 July 2024
     #### VNet-to-VNet (e)
     - VNet-to-hub-hub-to-VNet (h)
 
-## Architectures
+# Architectures
 - Secure hub, single region with routing intent
 - Secure hub, single region with custom route tables, static routes, propagation and association
 - Unsecured hub, single region with custom route tables, static routes, propagation and association
@@ -87,7 +87,12 @@ Last update: 9 July 2024
 - Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
 - Cross-region, multiple hubs secured or unsecured
 
-# Routing intent
+# Routing
+- Hub Router manages all routing
+- BGP
+- [Configure vHub routing](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing)
+
+## Routing intent
 
 - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
 - It is **not possible** configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
