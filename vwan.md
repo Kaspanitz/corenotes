@@ -7,8 +7,10 @@ Last update: 9 July 2024
 - Hub-Spoke architecture
 - Scale
 - Performance
-- [vWAN limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
-- [vWAN Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
+- [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
+- [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
+- [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
+- [Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
 
 # [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
 
