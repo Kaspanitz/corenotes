@@ -4,7 +4,7 @@ Last update: 9 July 2024
 - [Mainstream Service](https://learn.microsoft.com/en-us/azure/reliability/availability-service-by-category#available-services-by-region-category)
   - Available in all **recommended regions** within 90 days of region GA
   - Demand-driven in **alternate regions** (already deployed to large subset)
-- Central operational interface for networking, routing and security
+- Central management of network, routing and security
 - Hub-Spoke architecture
 - Scale, Performance and Security
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
