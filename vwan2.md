@@ -10,7 +10,8 @@ Last update: 9 July 2024
 - Types: Basic (S2S only), Standard *Basic can upgrade to Standard, but not back.
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
-  - [Explanation](https://learn.microsoft.com/en-us/azure/virtual-wan/pricing-concepts)  
+  - [Explanation](https://learn.microsoft.com/en-us/azure/virtual-wan/pricing-concepts)
+  - [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
 - [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
 - [Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
 
@@ -303,6 +304,8 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
   - VNets connected to hub in same region incur VNet peering charges. VNets connected to hub in a different region incur Global VNet peering charges.
 - [Migrate Hub-Spoke to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/migrate-from-hub-spoke-topology)
 - [Convert to secure hub](https://learn.microsoft.com/en-us/azure/virtual-wan/howto-firewall#convert-to-secured-hub)
+- [Cross-Tenant Vnet](https://learn.microsoft.com/en-us/azure/virtual-wan/cross-tenant-vnet)
+- [Customer-controlled Gateway Maintenance for vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/customer-controlled-gateway-maintenance)
 - [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
   - Direct Interconnect model (CPE is directly connected to vWAN hubs via IPsec connections)
   - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
