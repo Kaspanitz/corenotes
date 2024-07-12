@@ -263,10 +263,36 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 ## [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-any-to-any)
 
 ## [Isolating Vnets](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets)
+- Isolate all Vnets
 
-## [Isolating Vnets - custom (isolate subset)](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets-custom)
+## [Isolating Vnets - Custom](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets-custom)
+- Isolate a subset of Vnets
 
 ## [Isolating Vnets and Branches](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-virtual-networks-branches)
+
+## [Route through Shared Services Vnet](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-shared-services-vnet)
+
+## [Route through NVA](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-route-through-nva)
+
+## [Route through NVA - Custom](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-route-through-nvas-custom)
+- Route traffic through a NVA for communication between Vnets and branches, and use a different NVA for internet-bound traffic
+
+## [BGP Peering with vHub](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-bgp-peering-hub)
+- Exchange routing information directly through BGP
+- NVA or a BGP end point provisioned in a Vnet connected to a vHub, can directly peer with the vHub router if it supports the BGP routing protocol and ensures that ASN on the NVA is set up to be different from the vHub ASN
+
+## [Azure Firewall - Custom](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-route-between-vnets-firewall)
+- Route traffic between VNets directly, but use Azure Firewall for VNet-to-Internet/Branch and Branch-to-VNet traffic flows
+
+## [Secure traffic between Application Gateway and backend pools](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-secured-hub-app-gateway)
+-  In this scenario, a user’s traffic enters Azure through an application gateway deployed in a spoke VNet that is connected to a secured vWAN hub (vWAN hub with an Azure Firewall). The goal is to use the Azure Firewall in the secured vHub to inspect traffic between the application gateway and the backend pools.
+  - Same Vnet
+  - Different Vnet
+
+## [M365 via vWAN using ExpressRoute Private Peering](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-365-expressroute-private)
+- Sample scenarios:
+  - The customer is in an area where internet isn't available.
+  - The customer is in a highly regulated environment.
 
 # Links
 - [Global Vnet Peering](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
