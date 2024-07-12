@@ -236,8 +236,11 @@ Last update: 9 July 2024
   - ExpressRoute circuits are connected to different hubs and a private routing policy is configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
 ## [Encryped ExpressRoute (S2S VPN tunnel over ExpressRoute Circuit)](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
-
 - [Performance recommendations](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
+
+## ExpressRoute-to/from-VPN Transit
+- Requires Branch-to-branch flag to be enabled and
+- BGP be supported in VPN and ExpressRoute connections
 
 # [Private Link and DNS](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide?toc=%2Fazure%2Fvirtual-wan%2Ftoc.json&bc=%2Fazure%2Fvirtual-wan%2Fbreadcrumb%2Ftoc.json)
 - It is typical to require DNS resolution for workloads in vWAN spokes to connect to PaaS services e.g. a storage account using private link.
