@@ -112,6 +112,9 @@ Last update: 9 July 2024
 
 ## Concepts
 
+### Custom Routing
+Ability to set up custom route tables, optimize Vnet routing with route association and propagation, logically group RTs with labels and simplify numerous NVAs or shared services routing scenarios.
+
 ### Hub RT
 - Hub RT can contain one or more routes
 - A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed.
@@ -125,13 +128,12 @@ Last update: 9 July 2024
 - It is **not possible** to configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
 - Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
 - Two types:
-  Note: Max 1 of each/vWAN Hub i.e. a single next hop.
-  1. **Internet Traffic Routing Policy**:
-    - vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and NVA (deployed in the hub or spoke)
-    - When an Internet Traffic Routing Policy is configured on a hub, all branch and Vnet connections to that Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
-  2. **Private Traffic Routing Policy**: 
-    - Both branch and Vnet address prefixes
-    - When a Private Traffic Routing Policy is configured on a hub, all branch and Vnet traffic in and out of the Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy.
+1. **Internet Traffic Routing Policy**:
+  - vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and NVA (deployed in the hub or spoke)
+  - When an Internet Traffic Routing Policy is configured on a hub, all branch and Vnet connections to that Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
+2. **Private Traffic Routing Policy**: 
+  - Both branch and Vnet address prefixes
+  - When a Private Traffic Routing Policy is configured on a hub, all branch and Vnet traffic in and out of the Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy.
  - [Use cases and traffic flows](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#use-cases)
  - [Additional known limitations, considerations, prerequisites and rollback strategy](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
  - [Prefix advertisements to on-premises after routing intent is configured on a virtual hub](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#prefixadvertisments)
