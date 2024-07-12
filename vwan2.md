@@ -55,6 +55,8 @@ Last update: 9 July 2024
     - (Preview) Cisco Secure Firewall Threat Defense for Azure Virtual WAN
   - [Partner CONNECTIVITY & SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
     - Fortinet Next-Generation Firewall (NGFW)
+  - [Branch Partner IPsec connectivity automation](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-locations-partners)
+  - [IPsec connectivity w/o Partner automation](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal)
   
   ##### Branch-to-VNet (a)
     - Gateway transit not required (vWAN enables automatic gateway transit)
@@ -64,6 +66,7 @@ Last update: 9 July 2024
 
   #### User Connectivity
   - Remote user VPN connectivity (P2S)
+  - IPsec/IKE (IKEv2) or OpenVPN
   
   ##### Remote User-to-VNet (c)
   ##### Remote User-to-branch (d)
@@ -89,8 +92,24 @@ Last update: 9 July 2024
     - VNet-to-hub-hub-to-VNet (h)
 
 # [Routing](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing)
-- Hub Router
-- BGP
+
+## Hub Router
+  - Aggregate throughput up to 50 Gbps
+  - Max 3 Gbps throughput & 2k VMs across all Vnets (default: 2 routing infrastructure units)
+  - [Hub Settings](https://learn.microsoft.com/en-us/azure/virtual-wan/hub-settings)
+    - Additional routing infrastructure units (1 RIU = 1 Gbps, 1k VMs)
+    - Traffic may experience performance degradation if more than 1.5 Gbps is sent in a single TCP flow
+    - Regardless of the virtual hub capacity, hub can only accept a max 10,000 routes from connected resources (Vnets, branches, other virtual hubs, etc)
+    - [Virtual hub routing preference (HRP)](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing-preference)
+      - When a virtual hub has multiple routes to a destination prefix for on-premises, the best route or routes are selected in the **order of preference** as follows:
+        1. Select routes with Longest Prefix Match (LPM).
+        2. Prefer static routes learned from the virtual hub route table over BGP routes.
+        3. Select best path based on the virtual hub routing preference configuration.
+        You can select one of the three possible virtual hub routing preference configurations: ExpressRoute (default), VPN, or AS Path. Each configuration is slightly different. Route rules are processed sequentially within the selected configuration until a match is made.
+    - Gateway Settings
+      - Gateway Scale Units (adjust when more aggregated throughput for the gateway itself is needed)
+  - BGP
+
 ## Concepts
 
 ### Hub RT
