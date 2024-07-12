@@ -206,11 +206,11 @@ Last update: 9 July 2024
 - When you use Azure Firewall in multiple regions, all spoke Vnets must be associated to the same RT e.g., having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same hub isn't possible.
 - You can specify multiple next hop IP addresses on a single Vnet connection. However, Vnet Connection doesn't support ‘multiple/unique’ next hop IP to the ‘same’ NVA in a SPOKE Vnet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
   
-**//// Important Note ////**
+**//// Important ////**
 
 - All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. **This route doesn't propagate across hubs**
 
-**////**
+**///////////////////**
   
 - You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the Vnet prefix e.g., in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the Vnet prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same Vnet.
 - While it's true that 2 hubs on the same virtual WAN will announce routes to each other (as long as the propagation is enabled to the same labels), this only applies to dynamic routing. Once you define a static route, this isn't the case.
