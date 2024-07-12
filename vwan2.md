@@ -130,6 +130,7 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 - Simple, declarative routing policies to send Internet-bound and Private traffic to security solutions (e.g. Azure Firewall, NVA or Saa) solutions in vWAN hub
 - It is **not possible** to configure Routing Policies if hub isn't deployed with Azure Firewall, NVA or SaaS solution
 - Routing Intent simplifies routing by managing route table associations and propagations for all connections (Vnet, S2S VPN, P2S VPN and ExpressRoute). VWANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
+- [Konwn Limitations](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#knownlimitations)
 - Two types:
 1. **Internet Traffic Routing Policy**:
   - vWAN advertises a default (0.0.0.0/0) route to all spokes, Gateways and NVA (deployed in the hub or spoke)
