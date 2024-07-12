@@ -212,3 +212,11 @@ Last update: 9 July 2024
 ## [Encryped ExpressRoute (S2S VPN tunnel over ExpressRoute Circuit)](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#encryptedER)
 
 - [Performance recommendations](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
+
+# Links
+- [Migrate Hub-Spoke to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/migrate-from-hub-spoke-topology)
+- [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
+  - Direct Interconnect model (CPE is directly connected to vWAN hubs via IPsec connections)
+  - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
+  - Indirect Interconnect model (SD-WAN virtual CPE is deployed in an enterprise Vnet)
+  - Managed Hybrid WAN model using s managed service provider MSP (similar to direct/indirect but design, orchestration and operations done by SD-WAN provider)
