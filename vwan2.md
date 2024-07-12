@@ -254,6 +254,8 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
     - For **higher resiliency and increased load handling**, deploy multiple DNS Private Resolver instances per region, with Azure DNS proxy configured with multiple IP addresses for proxied resolution
 
 # Links
+- [Global Vnet Peering](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
+  - VNets connected to hub in same region incur VNet peering charges. VNets connected to hub in a different region incur Global VNet peering charges.
 - [Migrate Hub-Spoke to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/migrate-from-hub-spoke-topology)
 - [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
   - Direct Interconnect model (CPE is directly connected to vWAN hubs via IPsec connections)
