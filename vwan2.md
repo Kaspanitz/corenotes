@@ -15,7 +15,7 @@ Last update: 9 July 2024
 # [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
 
 - Hub enables transitive connectivity between endpoints distributed across different spokes e.g.
-  - Virtual network (VNets)
+  - VNets
   - Physical branch site
   - Remote user
   - Internet
