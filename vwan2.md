@@ -253,6 +253,21 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
     - Cross-region recommendation is to establish a hub extension per regional hub where private endpoint DNS resolution is required
     - For **higher resiliency and increased load handling**, deploy multiple DNS Private Resolver instances per region, with Azure DNS proxy configured with multiple IP addresses for proxied resolution
 
+# Scenarios
+## [Virtual Hub Routing Preference](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing-preference)
+- Beneficial when multiple on-premises are advertising routes to same destination prefixes, which can happen in customer vWAN scenarios that use any of the following setups:
+  - VWAN hub using ER connections as primary and VPN connections as backup
+  - VWAN with connections to multiple on-premises and customer is using one on-premises site as active, and another as standby for a service deployed using the same IP address ranges in both the sites
+  - VWAN has both VPN and ER connections simultaneously and the customer is distributing services across connections by controlling route advertisements from on-premises
+
+## [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-any-to-any)
+
+## [Isolating Vnets](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets)
+
+## [Isolating Vnets - custom (isolate subset)](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets-custom)
+
+## [Isolating Vnets and Branches](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-virtual-networks-branches)
+
 # Links
 - [Global Vnet Peering](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
   - VNets connected to hub in same region incur VNet peering charges. VNets connected to hub in a different region incur Global VNet peering charges.
