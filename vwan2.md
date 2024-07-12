@@ -185,7 +185,9 @@ Last update: 9 July 2024
 - All branch connections need to propagate their routes to the same set of RTs e.g., if you decide that branches should propagate to the Default RT, this configuration should be consistent across all branches. As a result, all connections associated to the Default RT will be able to reach all of the branches.
 - When you use Azure Firewall in multiple regions, all spoke Vnets must be associated to the same RT e.g., having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same hub isn't possible.
 - You can specify multiple next hop IP addresses on a single Vnet connection. However, Vnet Connection doesn't support ‘multiple/unique’ next hop IP to the ‘same’ NVA in a SPOKE Vnet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
+**Important Note**
 - All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. **This route doesn't propagate across hubs**
+**End**
 - You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the Vnet prefix e.g., in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the Vnet prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same Vnet.
 - While it's true that 2 hubs on the same virtual WAN will announce routes to each other (as long as the propagation is enabled to the same labels), this only applies to dynamic routing. Once you define a static route, this isn't the case.
 
@@ -220,3 +222,4 @@ Last update: 9 July 2024
   - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
   - Indirect Interconnect model (SD-WAN virtual CPE is deployed in an enterprise Vnet)
   - Managed Hybrid WAN model using s managed service provider MSP (similar to direct/indirect but design, orchestration and operations done by SD-WAN provider)
+- [Private Link and DNS](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide?toc=%2Fazure%2Fvirtual-wan%2Ftoc.json&bc=%2Fazure%2Fvirtual-wan%2Fbreadcrumb%2Ftoc.json)
