@@ -7,6 +7,7 @@ Last update: 9 July 2024
 - Centrally manage network, routing and security
 - Hub-Spoke
 - Scale, Performance and Security
+- Types: Basic (S2S only), Standard *Basic can upgrade to Standard, but not back.
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
 - [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
