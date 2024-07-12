@@ -306,6 +306,10 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 - [Convert to secure hub](https://learn.microsoft.com/en-us/azure/virtual-wan/howto-firewall#convert-to-secured-hub)
 - [Cross-Tenant Vnet](https://learn.microsoft.com/en-us/azure/virtual-wan/cross-tenant-vnet)
 - [Customer-controlled Gateway Maintenance for vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/customer-controlled-gateway-maintenance)
+- [Routing Deep Dive](https://learn.microsoft.com/en-us/azure/virtual-wan/routing-deep-dive)
+  - Scenario 1: topology with default routing preference
+  - Scenario 2: Global Reach and hub routing preference
+  - Scenario 3: Cross-connecting the ExpressRoute circuits to both hubs
 - [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
   - Direct Interconnect model (CPE is directly connected to vWAN hubs via IPsec connections)
   - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
