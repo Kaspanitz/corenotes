@@ -12,7 +12,15 @@ Last update: 9 July 2024
 - [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
 - [Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
 
-# [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
+# Architectures
+- Secure hub, single region with routing intent
+- Secure hub, single region with custom route tables, static routes, propagation and association
+- Unsecured hub, single region with custom route tables, static routes, propagation and association
+- Multi-hub, secured and secured or secured and unsecured or unsecured and unsecured, single region
+- Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
+- Cross-region, multiple hubs secured or unsecured
+
+## [Global Transit Network Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture)
 
 - Hub enables transitive connectivity between endpoints distributed across different spokes e.g.
   - VNets
@@ -22,11 +30,11 @@ Last update: 9 July 2024
 - [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-global-transit-network-architecture#anytoany)
 - Easier to manage than full mesh networks
 
-  ## Connectivity
+  ### Connectivity
     
   <img src="https://learn.microsoft.com/en-us/azure/virtual-wan/media/virtual-wan-global-transit-network-architecture/any-any.png" alt="anytoany" title="anytoany" width="500">
 
-  ### Branch Connectivity
+  #### Branch Connectivity
 
   - Virtual WAN Partner devices (e.g. SD-WAN or VPN CPE)
   - Site-to-site VPN connectivity (S2S)
@@ -47,19 +55,19 @@ Last update: 9 July 2024
   - [Partner CONNECTIVITY & SECURITY NVAs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-nva-hub#partners)
     - Fortinet Next-Generation Firewall (NGFW)
   
-  #### Branch-to-VNet (a)
+  ##### Branch-to-VNet (a)
     - Gateway transit not required (vWAN enables automatic gateway transit)
-  #### Branch-to-branch (b)
-  #### Branch-to-hub-hub-to-Branch (f)
-  #### Branch-to-hub-hub-to-VNet (g)
+  ##### Branch-to-branch (b)
+  ##### Branch-to-hub-hub-to-Branch (f)
+  ##### Branch-to-hub-hub-to-VNet (g)
 
-  ### User Connectivity
+  #### User Connectivity
   - Remote user VPN connectivity (P2S)
   
-  #### Remote User-to-VNet (c)
-  #### Remote User-to-branch (d)
+  ##### Remote User-to-VNet (c)
+  ##### Remote User-to-branch (d)
 
-  ### Intra-Cloud Connectivity
+  #### Intra-Cloud Connectivity
   - Transitive connectivity for Vnets
   - Cross-region VNet connection
     - Single Hub:
@@ -76,16 +84,8 @@ Last update: 9 July 2024
       - When optimal (latency-wise) to access the cloud from a region closest to physical site and users
       - When multiple hubs are enabled in a single vWAN, the hubs are automatically interconnected via hub-to-hub links, thus enabling global connectivity between branches and Vnets that are distributed across multiple regions.
       - Hubs in same vWAN, can be associated with different regional access and security policies
-    #### VNet-to-VNet (e)
+    ##### VNet-to-VNet (e)
     - VNet-to-hub-hub-to-VNet (h)
-
-# Architectures
-- Secure hub, single region with routing intent
-- Secure hub, single region with custom route tables, static routes, propagation and association
-- Unsecured hub, single region with custom route tables, static routes, propagation and association
-- Multi-hub, secured and secured or secured and unsecured or unsecured and unsecured, single region
-- Cross-region, single vWAN, hub in one region (Spokes from remote region can connect to hub in another region)
-- Cross-region, multiple hubs secured or unsecured
 
 # [Routing](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing)
 - Hub Router
