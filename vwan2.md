@@ -219,6 +219,15 @@ Last update: 9 July 2024
 
 - [Performance recommendations](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies#performance)
 
+# [Private Link and DNS](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide?toc=%2Fazure%2Fvirtual-wan%2Ftoc.json&bc=%2Fazure%2Fvirtual-wan%2Fbreadcrumb%2Ftoc.json)
+- It is typical to require DNS resolution for workloads in vWAN spokes to connect to PaaS services e.g. a storage account using private link.
+- It isn't possible to link private DNS zones to vWAN hubs, so any DNS resolution that happens within the hub isn't aware of private zones. Specifically, this is a problem for Azure Firewall, the configured DNS provider for workload spokes, which is using DNS for FQDN resolution. Azure DNS is called from the firewall instead of from the workload's network, so any private DNS zone links on the workload network aren't used in the resolution. To configure the regional firewall to be the spoke's dns provider, set the custom DNS server on the spoke virtual network to point to the private IP of the firewall instead of to the normal Azure DNS value.
+- [Private Link Working & Non-working Examples for illustration](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide?toc=%2Fazure%2Fvirtual-wan%2Ftoc.json&bc=%2Fazure%2Fvirtual-wan%2Fbreadcrumb%2Ftoc.json#working-scenario)
+- [Virtual Hub Extension Pattern](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-virtual-hub-extension-pattern): Guidance to securely expose shared services (e.g., Bastion & DNS) to spokes that cannot be deployed directly in a virtual hub
+  - [Single region working DNS example of Extension Pattern](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-single-region-workload)
+    - Cross-region recommendation is to establish a hub extension per regional hub where private endpoint DNS resolution is required
+    - For **higher resiliency and increased load handling**, deploy multiple DNS Private Resolver instances per region, with Azure DNS proxy configured with multiple IP addresses for proxied resolution
+
 # Links
 - [Migrate Hub-Spoke to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/migrate-from-hub-spoke-topology)
 - [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
@@ -226,4 +235,3 @@ Last update: 9 July 2024
   - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
   - Indirect Interconnect model (SD-WAN virtual CPE is deployed in an enterprise Vnet)
   - Managed Hybrid WAN model using s managed service provider MSP (similar to direct/indirect but design, orchestration and operations done by SD-WAN provider)
-- [Private Link and DNS](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide?toc=%2Fazure%2Fvirtual-wan%2Ftoc.json&bc=%2Fazure%2Fvirtual-wan%2Fbreadcrumb%2Ftoc.json)
