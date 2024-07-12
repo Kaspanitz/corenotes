@@ -10,6 +10,7 @@ Last update: 9 July 2024
 - Types: Basic (S2S only), Standard *Basic can upgrade to Standard, but not back.
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
+  - [Explanation](https://learn.microsoft.com/en-us/azure/virtual-wan/pricing-concepts)  
 - [Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits)
 - [Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-wan-security-baseline)
 
@@ -121,6 +122,7 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 - A Connection typically has a routing configuration that associates or propagates to a route table.
   
 ### Hub Routing Intent & Policies
+- [Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent)
 - Traffic via Azure Firewall or Next-Gen Firewall NVA or SaaS solution in Hub
 - Each Hub can have, at most, one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource.
 - Private Traffic includes both branch and Vnet address prefixes (Routing Policies considers them as one entity within the Routing Intent concepts)
@@ -140,9 +142,9 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 
 ### Connections (routing configuration)
 - Connection Types:
-  1.  VPN connection: Connects a VPN site to a virtual hub VPN gateway.
-  2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway.
-  3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway.
+  1.  VPN connection: Connects a VPN site to a virtual hub VPN gateway. [Portal Tutorial](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal)
+  2.  ExpressRoute connection: Connects an ExpressRoute circuit to a virtual hub ExpressRoute gateway. [Portal Tutorial](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-expressroute-portal)
+  3.  P2S configuration connection: Connects a User VPN (Point-to-site) configuration to a virtual hub User VPN (Point-to-site) gateway. [Portal Tutorial](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-point-to-site-portal)
   4.  Hub virtual network connection: Connects virtual networks to a virtual hub.
 - By default, all connections **associate and propagate to the Default route table**
   - Each hub has its own Default RT, which can be edited to add a static route(s).
@@ -261,6 +263,7 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
   - VWAN has both VPN and ER connections simultaneously and the customer is distributing services across connections by controlling route advertisements from on-premises
 
 ## [Any-to-any](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-any-to-any)
+- [Quickstart](https://learn.microsoft.com/en-us/azure/virtual-wan/quickstart-any-to-any-template)
 
 ## [Isolating Vnets](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-vnets)
 - Isolate all Vnets
@@ -271,6 +274,7 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 ## [Isolating Vnets and Branches](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-isolate-virtual-networks-branches)
 
 ## [Route through Shared Services Vnet](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-shared-services-vnet)
+- [Quickstart](https://learn.microsoft.com/en-us/azure/virtual-wan/quickstart-route-shared-services-vnet-template)
 
 ## [Route through NVA](https://learn.microsoft.com/en-us/azure/virtual-wan/scenario-route-through-nva)
 
@@ -298,6 +302,7 @@ Ability to set up custom route tables, optimize Vnet routing with route associat
 - [Global Vnet Peering](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
   - VNets connected to hub in same region incur VNet peering charges. VNets connected to hub in a different region incur Global VNet peering charges.
 - [Migrate Hub-Spoke to vWAN](https://learn.microsoft.com/en-us/azure/virtual-wan/migrate-from-hub-spoke-topology)
+- [Convert to secure hub](https://learn.microsoft.com/en-us/azure/virtual-wan/howto-firewall#convert-to-secured-hub)
 - [SD-WAN Architecture](https://learn.microsoft.com/en-us/azure/virtual-wan/sd-wan-connectivity-architecture)
   - Direct Interconnect model (CPE is directly connected to vWAN hubs via IPsec connections)
   - Direct Interconnect model with NVA-in-VWAN-hub (Proprietary end-to-end SD-WAN by connecting branch CPE to same brand NVA in vWAN hub)
