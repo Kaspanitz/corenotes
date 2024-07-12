@@ -5,7 +5,7 @@ Last update: 9 July 2024
   - Available in all **recommended regions** within 90 days of region GA
   - Demand-driven in **alternate regions** (already deployed to large subset)
 - Central management of network, routing and security
-- Hub-Spoke architecture
+- Hub-Spoke
 - Scale, Performance and Security
 - [Docs](https://learn.microsoft.com/en-us/azure/virtual-wan/)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-wan/#pricing)
