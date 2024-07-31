@@ -17,7 +17,7 @@
 - Problem 2: What if we need Azure to forward DNS queries for on-premises zones?
 - Underlying problem: DNS zones in Azure cannot be used as forwarders, and Azure DNS itself is only reachable from within an Azure Vnet.
 
-### DNS Private Resolver was developed to address these historical challenges
+### DNS Private Resolver addresses historical challenges
 ![DNS Private Resolver](https://learn.microsoft.com/en-us/azure/architecture/networking/architecture/_images/azure-dns-private-resolver-architecture.svg "DNS Private Resolver")
 - Inbound Endpoints: On-premises to Azure Name Resolution Receive domain name resolution requests. Binds to a subnet. /28 min, /24 recommended.
   - On-premises DNS can now be configured to conditional forward to this inbound endpoint IP address in the inbound endpoint subnet e.g. privatelink.blob.core.windows.net. The private resolver can in turn forward to 168.63.129.16
