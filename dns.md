@@ -18,7 +18,7 @@
 
 ### DNS Private Resolver was developed to address these historical challenges
 - Inbound Endpoints: On-premises to Azure Name Resolution Receive domain name resolution requests. Binds to a subnet. /28 min, /24 recommended.
-  - On-premises DNS can now be configured to conditional forward to this IP address in the inbound endpoint subnet. The private resolver can in turn forward to 168.63.129.16
+  - On-premises DNS can now be configured to conditional forward to this inbound endpoint IP address in the inbound endpoint subnet e.g. privatelink.blob.core.windows.net. The private resolver can in turn forward to 168.63.129.16
 - Outbound Endpoints: Azure to On-premises Name Resolution. Forward domain name resolution requests. Also binds to a subnet, and it has to be a **different subnet** from the inbound subnet. /28 min, /24 recommended.
   - Azure can use the IP address that this creates to forward to on-premises DNS servers
 - Rulesets: Define conditional forwarding rules for DNS traffic using outbound endpoints
