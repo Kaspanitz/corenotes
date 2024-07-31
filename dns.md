@@ -15,6 +15,7 @@
 - Problem 1: This on-premises DNS cannot forward to 168.63.129.16 as it only exists off Vnets in Azure
 - Solution 1: Customer has to deply a DNS forwarder in Azure, which in turn can then forward to 168.63.129.16. Historically this was a couple of DNS servers on Azure VMs.
 - Problem 2: What if we need Azure to forward DNS queries for on-premises zones?
+- Underlying problem: DNS zones in Azure cannot be used as forwarders, and Azure DNS itself is only reachable from within an Azure Vnet.
 
 ### DNS Private Resolver was developed to address these historical challenges
 - Inbound Endpoints: On-premises to Azure Name Resolution Receive domain name resolution requests. Binds to a subnet. /28 min, /24 recommended.
