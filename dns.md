@@ -17,9 +17,9 @@
 - Problem 2: What if we need Azure to forward DNS queries for on-premises zones?
 
 ### DNS Private Resolver was developed to address these historical challenges
-- Inbound Endpoints: Receive domain name resolution requests. Binds to a subnet. /28 min, /24 recommended
-  - On-premises DNS can now be configured to forward to this IP address in the inbound endpoint subnet. The private resolver can in turn forward to 168.63.129.16
-- Outbound Endpoints: Forward domain name resolution requests. Also binds to a subnet, and it has to be a **different subnet** from the inbound subnet. /28 min, /24 recommended
+- Inbound Endpoints: On-premises to Azure Name Resolution Receive domain name resolution requests. Binds to a subnet. /28 min, /24 recommended.
+  - On-premises DNS can now be configured to conditional forward to this IP address in the inbound endpoint subnet. The private resolver can in turn forward to 168.63.129.16
+- Outbound Endpoints: Azure to On-premises Name Resolution. Forward domain name resolution requests. Also binds to a subnet, and it has to be a **different subnet** from the inbound subnet. /28 min, /24 recommended.
   - Azure can use the IP address that this creates to forward to on-premises DNS servers
 - Rulesets: Define conditional forwarding rules for DNS traffic using outbound endpoints
   - Links the ruleset to a Vnet e.g. A couple of DNS Servers that should be used to resolve contoso.com via the outbound endpoint
@@ -27,7 +27,7 @@
     - Resolver may be in Hub, simply link spokes
     - Do we need peering? Not needed, a linked Vnet does not have to be peered for this to work as the path goes from Azure DNS, which knows about the private resolver and the ruleset.
 
-  ### Notes
+  ### Note
   - Private Resolver is a regional resource. Vnets that are linked must be in the same region.
   - To forward ALL requests from Azure DNS to custom DNS where there is no matching private DNS zone linked add a **default rule** i.e. domain "." (no quotes)
   - The only private DNS zones resolved are those linked to the vnet where the DNS resolver is deployed
