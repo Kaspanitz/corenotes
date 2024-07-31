@@ -36,4 +36,9 @@
 
 ## Resources
 [VWAN with Azure DNS Private Resolver](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-single-region-workload "vWAn with Azure DNS Private Resolver")
+
 [Guide to Private Link and DNS in Azure Virtual WAN](https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide)
+
+[DNS Private Resolver Availability](https://learn.microsoft.com/en-us/azure/dns/private-resolver-reliability)
+
+[DNS Failover using Private Resolvers - includes cross-region failover](https://learn.microsoft.com/en-us/azure/dns/tutorial-dns-private-resolver-failover)
